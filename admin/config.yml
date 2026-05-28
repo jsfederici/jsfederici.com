@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "FOTO"
+public_folder: "/FOTO"
+
+locale: it
+
+collections:
+  - name: "pagine"
+    label: "Pagine"
+    files:
+
+      - name: "index"
+        label: "Sito principale"
+        file: "index.html"
+        fields:
+          - label: "Bio — Titolo (IT)"
+            name: "bio_heading_it"
+            widget: "string"
+            default: "Real rooms,\nreal instruments."
+
+          - label: "Bio — Testo (IT)"
+            name: "bio_text_it"
+            widget: "text"
+
+          - label: "Bio — Testo (EN)"
+            name: "bio_text_en"
+            widget: "text"
+
+      - name: "biography"
+        label: "Biography"
+        file: "biography.html"
+        fields:
+          - label: "Testo bio (IT)"
+            name: "bio_it"
+            widget: "text"
+
+          - label: "Testo bio (EN)"
+            name: "bio_en"
+            widget: "text"
