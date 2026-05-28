@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: jsfederici/jsfederici.com
   branch: main
 
 media_folder: "FOTO"
