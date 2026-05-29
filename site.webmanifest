@@ -1,0 +1,13 @@
+{
+  "name": "Jacopo Sam Federici",
+  "short_name": "JSF",
+  "description": "Producer, arrangiatore e compositore a Milano. Volta Studio: produzione, registrazione, mix e orchestrazioni.",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "theme_color": "#0f0e0d",
+  "background_color": "#f4f1eb",
+  "display": "browser",
+  "start_url": "/"
+}
