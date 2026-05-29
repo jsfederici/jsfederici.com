@@ -148,7 +148,7 @@
     .gear-col li{font-size:0.85rem;color:var(--ink);padding:5px 0;opacity:0.75;transition:color 0.2s,opacity 0.2s}
     .gear-col li:hover{opacity:1}
 
-    .works-section{padding:80px 0 140px}
+    .works-section{padding:80px 0 260px}
     .works-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px}
     .works-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;font-style:italic}
     .works-header a{font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;color:#63625d;text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
@@ -203,8 +203,8 @@
     .footer-icon:hover{opacity:0.75}
     .footer-icon img{width:100%;height:100%;object-fit:contain}
 
-    .scroll-top{position:fixed;bottom:32px;right:28px;width:40px;height:40px;background:var(--ink);color:var(--paper);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:300;font-size:1.1rem;line-height:1;border:none;padding:0}
-    .scroll-top.visible{opacity:0.6}
+    .scroll-top{position:fixed;bottom:32px;right:28px;width:40px;height:40px;background:var(--ink);color:var(--paper);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:300;font-size:1.1rem;line-height:1;border:none;padding:0}
+    .scroll-top.visible{opacity:0.6;pointer-events:auto}
     .scroll-top:hover{opacity:1}
 
     @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
@@ -316,7 +316,7 @@
       #contact p{font-size:0.92rem !important;max-width:100% !important;margin-bottom:32px !important}
       #contact a[href^="mailto"]{font-size:1.2rem !important}
       #contact-social{justify-content:center !important;margin-top:20px !important}
-      #contact-footer-bar{margin-top:28px !important;padding:16px 20px !important;gap:4px !important;flex-direction:column !important;align-items:flex-start !important}
+      #contact-footer-bar{margin-top:28px !important;padding:22px 20px 16px !important;gap:4px !important;flex-direction:column !important;align-items:flex-start !important}
       #contact-footer-bar p{font-size:0.5rem !important}
       #contact > div > div:last-child{
         flex-direction:column !important;
@@ -802,12 +802,17 @@ window.addEventListener('DOMContentLoaded', function() {
 
 <script>
 (function(){
+  var lastY = window.pageYOffset;
   var btn = null;
   window.addEventListener('scroll', function(){
     if(!btn) btn = document.querySelector('.scroll-top');
     var y = window.pageYOffset;
-    if(y > 400){ btn.classList.add('visible'); }
-    else { btn.classList.remove('visible'); }
+    if(y < lastY && y > 400){
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+    lastY = y;
   }, {passive:true});
 })();
 </script>
