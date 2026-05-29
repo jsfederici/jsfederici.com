@@ -1,0 +1,10 @@
+# Netlify — cache aggressiva sugli asset statici (immutabili)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML: sempre fresco
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

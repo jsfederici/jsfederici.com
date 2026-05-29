@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preload" as="image" href="images/idx-hero-1200.webp" imagesrcset="images/idx-hero-768.webp 768w, images/idx-hero-1200.webp 1200w, images/idx-hero-1600.webp 1400w" imagesizes="(max-width:900px) 100vw, 1100px" fetchpriority="high">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jacopo Sam Federici — Producer, Studio di Registrazione e Produzione Musicale | Milano</title>
+  <meta name="description" content="Producer, arrangiatore e compositore a Milano. Volta Studio: produzione discografica, registrazione voce e strumenti, mixaggio, orchestrazioni, sessioni orchestrali e composizione su brief. Sessioni in studio nell'area di Milano e produzioni da remoto in Italia e all'estero.">
+  <meta name="keywords" content="studio di registrazione Milano, studio di produzione musicale Milano, produzione discografica, mixaggio, missaggio, orchestrazioni, orchestra, arrangiamenti, jingle, composizione su brief, producer Milano, arrangiatore, musicista di studio, registrazione voce, registrazione strumenti, songwriting, Volta Studio, Cambiago, hinterland Milano, da remoto, FET Bastards">
+  <meta name="author" content="Jacopo Sam Federici">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="IT-MI">
+  <meta name="geo.placename" content="Cambiago, Milano">
+  <meta name="geo.position" content="45.5986;9.4079">
+  <meta name="ICBM" content="45.5986, 9.4079">
+  <meta name="theme-color" content="#0f0e0d">
+  <link rel="canonical" href="https://www.jsfederici.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jacopo Sam Federici">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://www.jsfederici.com/">
+  <meta property="og:title" content="Jacopo Sam Federici - Producer · Songwriter">
+  <meta property="og:description" content="Jacopo Sam Federici è un producer e songwriter basato a Milano. Co-founder del duo FET BASTARDs.">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:image" content="https://www.jsfederici.com/FOTO/00%20Head/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://www.jsfederici.com/FOTO/00%20Head/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jacopo Sam Federici - Producer · Songwriter">
+  <meta name="twitter:description" content="Jacopo Sam Federici è un producer e songwriter basato a Milano. Co-founder del duo FET BASTARDs.">
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/favicon-180x180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&display=swap"></noscript>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    #about,#studio,#works,#contact{scroll-margin-top:90px}
+    @media(max-width:768px){#about,#studio,#works,#contact{scroll-margin-top:64px}}
+    html,body{overflow-x:hidden;max-width:100vw}
+    :root{
+      --ink:#0f0e0d;--paper:#f4f1eb;--cream:#ede9e1;
+      --dust:#7a7872;--rule:#dedad3;
+      --serif:"Cormorant Garamond",Georgia,serif;
+      --sans:"Karla",sans-serif;
+      --max:1100px
+    }
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:200;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:20px 56px;
+      background:rgba(244,241,235,0.92);
+      backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      border-bottom:none;
+    }
+    .site-name{
+      font-family:var(--serif);
+      font-size:0.95rem;
+      font-weight:300;
+      letter-spacing:0.42em;
+      text-decoration:none;
+      color:var(--ink);
+      text-transform:uppercase;
+    }
+    nav{display:flex;gap:36px;list-style:none}
+    nav a{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:color 0.2s;opacity:0.7}
+    nav a:hover{color:var(--ink)}
+
+    /* ── HERO — immagine centrata con hover overlay ── */
+    .hero{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:80px 56px 0;
+    }
+
+    .hero-photo-wrap{
+      position:relative;
+      width:calc(100% + 112px);
+      max-width:var(--max);
+      margin:0 -56px;
+      overflow:hidden;
+      cursor:default;
+      border-radius:14px;
+      max-height:calc(100vh - 160px);
+    }
+
+    .hero-photo-wrap img{
+      width:100%;
+      height:100%;
+      max-height:calc(100vh - 160px);
+      object-fit:cover;
+      object-position:center 30%;
+      display:block;
+        transition:opacity 0.4s ease;
+    }
+
+    /* Sottotitolo permanente */
+    .hero-sub{
+      margin-top:24px;
+      font-size:0.9rem;
+      letter-spacing:0.42em;
+      text-transform:uppercase;
+      color:var(--ink);
+      text-align:center;
+      font-weight:300;
+    }
+
+    .wrapper{max-width:var(--max);margin:0 auto;padding:0 56px}
+    .section-rule{border:none;border-top:1px solid var(--rule)}
+    .label{font-size:0.63rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);display:block;opacity:0.6}
+
+    .bio-section{padding:80px 0;display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start;overflow:hidden}
+    .bio-label{padding-top:6px}
+    .bio-text h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;font-style:italic;line-height:1.2;margin-bottom:40px}
+    .bio-text p{font-size:0.9rem;color:var(--dust);line-height:1.85;margin-bottom:24px;max-width:640px}
+    .bio-text strong{font-weight:600}
+
+    .studio-section{padding:80px 0 80px}
+    .studio-header{display:grid;grid-template-columns:1fr 2.2fr;gap:0 80px;align-items:start;margin-bottom:48px}
+    .studio-header > div:first-child{padding-top:6px}
+    .studio-header h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;font-style:italic;line-height:1.2}
+    .studio-header p{font-size:0.9rem;color:var(--dust);max-width:520px;line-height:1.85;margin-top:16px}
+    .studio-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:420px 280px;gap:3px;margin:0 -56px}
+    .sg-item{overflow:hidden;position:relative;background:var(--cream)}
+    .sg-item:first-child{grid-row:span 2}
+    .sg-item img{width:100%;height:100%;object-fit:cover;opacity:0.92;transition:opacity 0.4s,transform 0.5s}
+    .sg-item:hover img{opacity:1;transform:scale(1.04)}
+    .sg-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 20px 14px;background:linear-gradient(transparent,rgba(0,0,0,0.48));font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);opacity:0;transition:opacity 0.3s}
+    .sg-item:hover .sg-caption{opacity:1}
+    .studio-gear{display:grid;grid-template-columns:repeat(3,1fr);margin-top:3px;gap:0 60px;padding-left:80px}
+    .gear-col{padding:40px 0}
+    
+    .gear-col h4{font-size:0.7rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--ink);margin-bottom:20px;opacity:0.8}
+    .gear-col ul{list-style:none}
+    .gear-col li{font-size:0.85rem;color:var(--ink);padding:5px 0;opacity:0.75;transition:color 0.2s,opacity 0.2s}
+    .gear-col li:hover{opacity:1}
+
+    .works-section{padding:80px 0 140px}
+    .works-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px}
+    .works-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;font-style:italic}
+    .works-header a{font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--dust);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+    .works-header a:hover{color:var(--ink);border-color:var(--ink)}
+    .covers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:0 -56px 3px}
+    .works-player-stack{}
+    .works-spotify-strip{margin-top:24px;display:flex;justify-content:center}
+    .works-spotify-strip iframe{width:100%;max-width:640px;height:160px;border:none;display:block;border-radius:8px}
+    .cover-item{position:relative;overflow:hidden;aspect-ratio:1;background:var(--cream);cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent}
+    .cover-item img{width:100%;height:100%;object-fit:cover;opacity:0.92;transition:opacity 0.4s,transform 0.5s}
+    .cover-item:hover img,.cover-item.tapped img,.cover-item:focus-visible img{opacity:1;transform:scale(1.04)}
+    .cover-caption{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;background:linear-gradient(transparent 20%,rgba(0,0,0,0.85));opacity:0;transition:opacity 0.3s}
+    .cover-item:hover .cover-caption,.cover-item.tapped .cover-caption,.cover-item:focus-visible .cover-caption{opacity:1}
+    .cover-artist{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#fff;line-height:1.2}
+    .cover-title{font-family:var(--serif);font-size:1rem;font-style:italic;color:rgba(255,255,255,0.95);margin-top:2px}
+    .cover-role{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:6px}
+    .cover-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--cream);flex-direction:column;gap:8px;padding:16px}
+    .cover-placeholder span{font-family:var(--serif);font-size:0.85rem;color:var(--dust);text-align:center;line-height:1.4}
+    .cover-placeholder small{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--rule)}
+    .credits-table{width:100%;border-collapse:collapse;border-top:1px solid var(--rule);margin-top:3px}
+    .credits-table tr{border-bottom:1px solid var(--rule);transition:background 0.2s}
+    .credits-table tr:hover{background:var(--cream)}
+    .credits-table td{padding:16px 0;font-size:0.87rem}
+    .credits-table td:first-child{font-family:var(--serif);font-size:1.05rem;font-weight:600;width:26%}
+    .credits-table td:nth-child(2){font-family:var(--serif);font-style:italic;color:var(--dust);width:32%}
+    .credits-table td:nth-child(3){font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--dust);width:30%}
+    .credits-table td:last-child{font-size:0.7rem;color:var(--dust);opacity:0.55;text-align:right;width:12%}
+    .muso-badge{display:flex;align-items:center;padding:24px 0;border-top:1px solid var(--rule);margin-top:3px}
+    .muso-badge a{display:inline-flex;align-items:center;gap:10px;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:0.7;transition:opacity 0.2s}
+    .muso-badge a:hover{color:var(--ink)}
+    .muso-badge img{height:18px;width:auto;opacity:0.45;transition:opacity 0.2s}
+    .muso-badge a:hover img{opacity:0.9}
+
+    .listen-section{padding:80px 0 140px;display:grid;grid-template-columns:1fr 1.6fr;gap:0 80px;align-items:start}
+    .listen-left h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;font-style:italic;line-height:1.2;margin-bottom:20px}
+    .listen-left p{font-size:0.88rem;color:var(--dust);line-height:1.85;max-width:340px}
+    .listen-right iframe{width:100%;border:none;display:block}
+
+    .contact-section{padding:96px 0 112px;text-align:center}
+    .contact-heading{font-family:var(--serif);font-size:clamp(2rem,4.5vw,4rem);font-weight:300;font-style:italic;margin-bottom:40px;line-height:1.15}
+    .contact-email{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:300;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px;transition:color 0.25s,border-color 0.25s}
+    .contact-email:hover{color:var(--dust);border-color:var(--dust)}
+    .contact-social{display:flex;justify-content:center;align-items:center;gap:28px;margin-top:56px}
+    .social-icon{display:inline-flex;width:28px;height:28px;opacity:0.4;transition:opacity 0.25s,transform 0.25s;text-decoration:none}
+    .social-icon:hover{opacity:1;transform:scale(1.12)}
+    .social-icon img{width:100%;height:100%;object-fit:contain}
+
+    footer{border-top:1px solid var(--rule);padding:28px 56px;display:flex;justify-content:space-between;align-items:center}
+    footer p{font-size:0.6rem;letter-spacing:0.1em;color:var(--dust)}
+    .footer-social{display:flex;gap:18px;align-items:center}
+    .footer-icon{width:16px;height:16px;opacity:0.3;transition:opacity 0.2s;text-decoration:none;display:inline-flex}
+    .footer-icon:hover{opacity:0.75}
+    .footer-icon img{width:100%;height:100%;object-fit:contain}
+
+    .scroll-top{position:fixed;bottom:32px;right:36px;width:44px;height:44px;background:var(--ink);color:var(--paper);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:300;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;gap:1px}
+    .scroll-top.visible{opacity:0.6}
+    .scroll-top:hover{opacity:1}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .hero-photo-wrap{animation:fadeIn 1s ease forwards}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.8s ease,transform 0.8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:900px){
+      [style*="margin:3px -56px"]{margin:3px -20px 0 !important}
+      .hero-photo-wrap{width:calc(100% + 40px) !important;margin:0 -20px !important;max-width:none !important;border-radius:10px !important}
+      .hero-photo-wrap img{max-height:calc(100vh - 120px) !important}
+      .hero{padding:64px 24px 0 !important}
+      *{max-width:100vw}
+      .studio-grid{margin:0 -20px !important}
+      .covers-grid{margin:0 -20px 3px !important}
+      
+      .bio-text p{font-size:0.95rem !important;line-height:1.9 !important}
+      .bio-text h2{font-size:1.8rem !important}
+      .studio-header p{font-size:0.95rem !important;line-height:1.9 !important}
+      .gear-col li{font-size:0.95rem !important;padding:7px 0 !important}
+      .gear-col h4{font-size:0.72rem !important}
+      
+      .listen-left p{font-size:0.95rem !important}
+      .listen-left h2{font-size:1.6rem !important}
+      
+      #contact h2{font-size:1.8rem !important}
+      #contact p{font-size:0.95rem !important}
+      
+      .cover-artist{font-size:0.95rem !important}
+      .cover-title{font-size:0.82rem !important}
+      .cover-role{font-size:0.6rem !important}
+      
+      .hero-sub{font-size:0.6rem !important}
+      
+      header{padding:14px 20px !important}
+      .site-name{font-size:0.78rem !important}
+      
+      .label{font-size:0.6rem !important}
+      
+      .studio-header h2{font-size:1.5rem !important}
+      html{font-size:16px}
+      .wrapper{padding:0 20px}
+
+      header{padding:14px 20px}
+      nav{display:none}
+      .site-name{font-size:0.8rem;letter-spacing:0.22em}
+
+      .hero{padding:20px 20px 0}
+      .hero-photo-wrap{max-width:100%;border-radius:10px}
+      .hero-sub{font-size:0.65rem;letter-spacing:0.25em;margin-top:16px}
+
+      .bio-section{grid-template-columns:1fr;gap:16px 0;padding:52px 0}
+      .bio-label{margin-bottom:24px}
+      .bio-text h2{font-size:1.9rem;margin-bottom:24px}
+      .bio-text p{font-size:0.92rem;line-height:1.85}
+
+      .studio-section{padding:52px 0 52px}
+      .studio-header{grid-template-columns:1fr;gap:12px;margin-bottom:32px}
+      .studio-header h2{font-size:1.7rem}
+      .studio-header p{font-size:0.92rem;margin-top:10px}
+
+      .studio-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:auto;
+        margin:0 -20px;
+      }
+      .sg-item{height:180px}
+      .sg-item:first-child{grid-row:span 1;height:180px}
+      .studio-grid .sg-item:last-child{grid-column:1/-1}
+
+      .studio-gear{grid-template-columns:1fr !important;margin-top:0}
+      /* Accordion mobile */
+      .studio-gear{padding-left:0 !important}
+      .gear-col{padding:0 !important;border-right:none !important;border-bottom:none !important;border-top:1px solid var(--rule) !important}
+      .studio-gear:last-of-type .gear-col:last-child{border-bottom:1px solid var(--rule) !important}
+      .studio-gear:not(:last-of-type) .gear-col:last-child{border-bottom:none !important}
+      .gear-col h4{display:flex;justify-content:space-between;align-items:center;padding:16px 0 !important;cursor:pointer;font-size:0.7rem;margin-bottom:0 !important}
+      .gear-col h4::after{content:"＋";font-size:0.9rem;opacity:0.4;transition:transform 0.3s}
+      .gear-col.open h4::after{content:"−"}
+      .gear-col ul{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+      .gear-col.open ul{max-height:600px}
+      .gear-col li{padding:6px 0 !important}
+      .gear-col h4{font-size:0.7rem;margin-bottom:14px}
+      .gear-col li{font-size:0.92rem;padding:5px 0}
+      .gear-col li:last-child{border-bottom:none !important}
+
+      .studio-header[style*="padding:80px"]{grid-template-columns:1fr !important;gap:12px !important;padding:52px 0 24px !important}
+
+      .works-section{padding:52px 0 80px}
+      .covers-grid{grid-template-columns:repeat(2,1fr);gap:2px}
+      .works-spotify-strip iframe{max-width:100%;height:152px;border-radius:4px}
+      .cover-artist{font-size:0.82rem}
+      .cover-title{font-size:0.72rem}
+      .cover-role{font-size:0.55rem}
+
+      .listen-section{grid-template-columns:1fr;gap:32px 0;padding:52px 0 80px}
+      .listen-left h2{font-size:1.7rem}
+      .listen-left p{font-size:0.92rem;max-width:100%}
+      .listen-right iframe{height:380px;min-height:380px}
+
+      #contact{padding:48px 0 20px !important}
+      #contact > div{padding:0 20px !important}
+      #contact .reveal{
+        grid-template-columns:1fr !important;
+        gap:24px 0 !important;
+        padding-bottom:32px !important;
+      }
+      #contact h2{font-size:2.2rem !important;margin-bottom:24px !important}
+      #contact p{font-size:0.92rem !important;max-width:100% !important;margin-bottom:32px !important}
+      #contact a[href^="mailto"]{font-size:1.2rem !important}
+      #contact .reveal > div:last-child > div[style*="margin-top:48px"]{margin-top:28px !important}
+      #contact > div > div:last-child{
+        flex-direction:column !important;
+        gap:8px !important;
+        text-align:center !important;
+        padding-top:18px !important;
+      }
+
+      [class="studio-header reveal"]{grid-template-columns:1fr !important;gap:12px !important}
+
+      [style*="padding:56px 0 56px"]{font-size:0.9rem !important}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.jsfederici.com/#website",
+        "url": "https://www.jsfederici.com/",
+        "name": "Jacopo Sam Federici",
+        "inLanguage": ["it-IT", "en"],
+        "publisher": { "@id": "https://www.jsfederici.com/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.jsfederici.com/#person",
+        "name": "Jacopo Sam Federici",
+        "jobTitle": "Music Producer, Songwriter, Arranger",
+        "url": "https://www.jsfederici.com/",
+        "image": "https://www.jsfederici.com/FOTO/00%20Head/og-image.jpg",
+        "sameAs": [
+          "https://www.instagram.com/jsfederici/",
+          "https://www.instagram.com/fetbastards/",
+          "https://www.discogs.com/artist/6352539-Jacopo-Federici"
+        ],
+        "knowsAbout": [
+          "Produzione musicale", "Produzione discografica", "Recording",
+          "Registrazione voce", "Registrazione strumenti", "Mixaggio",
+          "Songwriting", "Arrangiamento", "Orchestrazione",
+          "Sessioni orchestrali", "Composizione su brief", "Jingle"
+        ],
+        "worksFor": { "@id": "https://www.jsfederici.com/#fetbastards" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cambiago",
+          "addressRegion": "MI",
+          "addressCountry": "IT"
+        }
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://www.jsfederici.com/#studio",
+        "name": "Volta Studio \u2014 Jacopo Sam Federici",
+        "alternateName": ["Volta Studio", "Volta Studio Milano"],
+        "description": "Studio di registrazione e produzione musicale a Cambiago, alle porte di Milano. Produzione discografica, registrazione voce e strumenti, mixaggio, orchestrazioni, sessioni orchestrali e composizione su brief. Sessioni in studio nell'area milanese e produzioni da remoto in Italia e all'estero.",
+        "url": "https://www.jsfederici.com/",
+        "image": "https://www.jsfederici.com/FOTO/00%20Head/og-image.jpg",
+        "email": "hello@jsfederici.com",
+        "priceRange": "$$",
+        "founder": { "@id": "https://www.jsfederici.com/#person" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cambiago",
+          "addressRegion": "MI",
+          "postalCode": "20040",
+          "addressCountry": "IT"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 45.5986, "longitude": 9.4079 },
+        "areaServed": [
+          { "@type": "City", "name": "Milano" },
+          { "@type": "AdministrativeArea", "name": "Citt\u00e0 Metropolitana di Milano" },
+          { "@type": "City", "name": "Monza" },
+          { "@type": "AdministrativeArea", "name": "Monza e Brianza" },
+          { "@type": "City", "name": "Cambiago" },
+          { "@type": "City", "name": "Gorgonzola" },
+          { "@type": "City", "name": "Cernusco sul Naviglio" },
+          { "@type": "City", "name": "Sesto San Giovanni" },
+          { "@type": "City", "name": "Vimercate" },
+          { "@type": "City", "name": "Segrate" },
+          { "@type": "AdministrativeArea", "name": "Lombardia" },
+          { "@type": "Country", "name": "Italia" }
+        ],
+        "serviceType": [
+          "Produzione discografica", "Registrazione", "Mixaggio",
+          "Orchestrazione", "Sessioni orchestrali", "Songwriting",
+          "Composizione su brief", "Jingle", "Arrangiamento"
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "name": "Produzione e collaborazioni da remoto",
+          "serviceLocation": { "@type": "VirtualLocation", "url": "https://www.jsfederici.com/" }
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servizi di produzione musicale",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Produzione discografica musicale", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Registrazione voce e strumenti", "areaServed": "Milano" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mixaggio / Missaggio", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Orchestrazione e arrangiamento", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sessioni orchestrali", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Composizione su brief", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jingle e musica per pubblicit\u00e0", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Songwriting", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Musicista di studio / session", "areaServed": "Milano" } }
+          ]
+        }
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://www.jsfederici.com/#fetbastards",
+        "name": "FET Bastards",
+        "url": "https://www.instagram.com/fetbastards/",
+        "member": { "@id": "https://www.jsfederici.com/#person" }
+      }
+    ]
+  }
+  </script>
+<script>
+(function(){
+  if(!location.hash) return;
+  var s=document.createElement('style');
+  s.id='hash-nav-hide';
+  s.textContent='body{opacity:0!important;pointer-events:none}';
+  document.head.appendChild(s);
+  document.addEventListener('DOMContentLoaded',function(){
+    document.documentElement.style.scrollBehavior='auto';
+    var el=document.querySelector(location.hash);
+    if(el){
+      var top=el.getBoundingClientRect().top+window.pageYOffset-90;
+      window.scrollTo(0,top);
+    }
+    var hide=document.getElementById('hash-nav-hide');
+    if(hide) hide.remove();
+    requestAnimationFrame(function(){
+      document.documentElement.style.scrollBehavior='';
+    });
+  });
+})();
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Jacopo Sam Federici - Producer e Studio di Registrazione Milano</h1>
+  <a href="#" class="site-name">Jacopo Sam Federici</a>
+  <div style="display:flex;align-items:center;gap:36px;">
+    <nav>
+      <a href="#about" data-i18n="nav_about">Bio</a>
+      <a href="#studio" data-i18n="nav_studio">Volta Studio</a>
+      <a href="#works" data-i18n="nav_works">Lavori</a>
+      <a href="#contact" data-i18n="nav_contact">Contatti</a>
+    </nav>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <button id="btn-it" onclick="setLang('it')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:var(--ink);opacity:1;font-weight:500;padding:0;">IT</button>
+      <span style="color:var(--rule);font-size:0.7rem;">·</span>
+      <button id="btn-en" onclick="setLang('en')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:var(--dust);opacity:0.35;font-weight:400;padding:0;">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO — foto centrata con hover -->
+<div class="hero">
+  <div class="hero-photo-wrap">
+    <img alt="Jacopo Sam Federici" src="images/idx-hero-1200.webp" srcset="images/idx-hero-768.webp 768w, images/idx-hero-1200.webp 1200w, images/idx-hero-1600.webp 1400w" sizes="(max-width:900px) 100vw, 1100px" width="1200" height="800" fetchpriority="high" decoding="async">
+    <div class="hero-overlay">
+    </div>
+  </div>
+  <p class="hero-sub" data-i18n="hero_sub">Producer · Songwriter</p>
+</div>
+
+<!-- BIO -->
+<section id="about"><hr class="section-rule" style="margin-top:64px;">
+<div class="wrapper"><div class="bio-section reveal">
+  <div class="bio-label">
+        <span class="label" style="margin-bottom:20px;" data-i18n="about_label">Bio</span>
+        <div style="margin-top:24px;overflow:hidden;border-radius:6px;">
+          <img alt="Jacopo Sam Federici e Ron" style="width:100%;height:auto;display:block;opacity:0.93;" src="images/idx-02.webp" width="900" height="443" loading="lazy" decoding="async">
+        </div>
+        <p style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dust);margin-top:10px;opacity:0.7;">Angelo Studio — Ron</p>
+        <div style="margin-top:16px;overflow:hidden;border-radius:6px;">
+          <img alt="Budapest Art Orchestra — Eros Ramazzotti" style="width:100%;height:auto;display:block;opacity:0.92;" src="images/idx-03.webp" width="800" height="600" loading="lazy" decoding="async">
+        </div>
+        <p style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dust);margin-top:10px;opacity:0.7;">Budapest Art Orchestra — Eros Ramazzotti</p>
+      </div>
+  <div class="bio-text">
+    <h2 id="t-bio-heading" data-i18n="bio_heading">Un suono fisico,<br>che vive e rimane</h2>
+    <p class="t-it"><em>Jacopo Sam Federici</em> è un producer, composer e arrangiatore. Il suo lavoro attraversa scrittura, produzione, recording e orchestrazione, con un approccio che unisce visione musicale, precisione tecnica e rapidità operativa.<br><br>Lavora su progetti discografici, sessioni orchestrali e brief internazionali, costruendo ogni produzione intorno a un suono preciso, fisico e riconoscibile.<br><br>Insieme a <em>Iacopo Pinna</em> dà vita ai <em><a href="https://www.instagram.com/fetbastards/" target="_blank" style="color:inherit;border-bottom:1px solid var(--rule);text-decoration:none;">FET Bastards</a></em>, duo di producer attivo tra Italia e Stati Uniti.</p>
+    <p class="t-en" style="display:none"><em>Jacopo Sam Federici</em> is a producer, composer and arranger. His work spans writing, production, recording and orchestration, with an approach that combines musical vision, technical precision and operational speed.<br><br>He works on record projects, orchestral sessions and international briefs, building every production around a precise, physical and recognisable sound.<br><br>Together with <em>Iacopo Pinna</em> he forms <em><a href="https://www.instagram.com/fetbastards/" target="_blank" style="color:inherit;border-bottom:1px solid var(--rule);text-decoration:none;">FET Bastards</a></em>, a producer duo active between Italy and the United States.</p>
+    <a href="biography.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:36px;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity 0.2s;opacity:0.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" data-i18n="full_bio_link">Biografia completa &nbsp;→</a>
+  </div>
+</div></div></section>
+
+<!-- STUDIO -->
+<section id="studio"><hr class="section-rule">
+<div class="wrapper"><div class="studio-section">
+  <div class="studio-header reveal">
+    <div>
+      <span class="label" data-i18n="studio_label">Volta Studio</span>
+      <div style="margin-top:24px;overflow:hidden;border-radius:6px;">
+        <img alt="Rhodes Keyboard Instruments" style="width:100%;height:auto;display:block;opacity:0.92;" src="images/idx-04.webp" width="1023" height="1280" loading="lazy" decoding="async">
+      </div>
+    </div>
+    <div>
+      <h2 data-i18n="studio_heading">Una cantina del XIX secolo<br>per un suono contemporaneo.</h2>
+      <p class="t-it">Volta Studio si trova sotto una cascina storica nel centro di Cambiago, alle porte di Milano.</p>
+      <p class="t-en" style="display:none">Volta Studio is located beneath a historic farmhouse in the centre of Cambiago, on the outskirts of Milan.</p>
+      
+      <p class="t-it" style="margin-top:16px;">Un'ex cantina lombarda con volte a botte in mattoni originali del XIX secolo, restaurata e trasformata in uno spazio contemporaneo, accogliente e capace di ispirare.</p>
+      <p class="t-en" style="display:none;margin-top:16px;">A former Lombard cellar with original 19th-century brick barrel vaults, restored and transformed into a contemporary space — welcoming and able to inspire.</p>
+
+      <p class="t-it" style="margin-top:16px;">Trattamento acustico custom, strumenti selezionati, outboard analogico e sedici canali di conversione a 96 kHz convivono in un workflow pensato per lavorare in modo rapido, preciso e stimolante.</p>
+      <p class="t-en" style="display:none;margin-top:16px;">Custom acoustic treatment, selected instruments, analogue outboard and sixteen channels of conversion at 96 kHz coexist within a workflow designed for work that is fast, precise and inspiring.</p>
+      <a href="setup.html" data-i18n="setup_link" style="display:inline-block;margin-top:36px;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity 0.2s;opacity:0.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">Setup completo &nbsp;→</a>
+      
+
+    </div>
+  </div>
+  <div style="margin:3px -56px 3px;overflow:hidden;">
+    <img alt="Stage piano" style="width:100%;height:320px;object-fit:cover;object-position:center 38%;display:block;opacity:0.92;" src="images/idx-05.webp" width="1023" height="1280" loading="lazy" decoding="async">
+  </div>
+  <div class="studio-grid reveal">
+    <div class="sg-item"><img alt="Volta Studio — control room" src="images/idx-06.webp" width="1024" height="1280" loading="lazy" decoding="async"></div>
+    <div class="sg-item"><img alt="Fuchs piano — Revox A77" src="images/idx-07.webp" width="1280" height="960" loading="lazy" decoding="async"></div>
+    <div class="sg-item"><img alt="Ribbon mic inside piano" src="images/idx-08.webp" width="1024" height="1280" loading="lazy" decoding="async"></div>
+    <div class="sg-item"><img alt="Rack — Apollo, Cloudlifter, API" src="images/idx-09.webp" width="1024" height="1280" loading="lazy" decoding="async"></div>
+    <div class="sg-item"><img alt="Prophet-6 — Moog" src="images/idx-10.webp" width="1280" height="768" loading="lazy" decoding="async"></div>
+
+  </div>
+</div></div></section>
+
+<!-- WORKS -->
+<section id="works" style="overflow:hidden"><hr class="section-rule">
+<div class="wrapper"><div class="works-section">
+  <div class="studio-header reveal" style="padding:0 0 48px;">
+    <div><span class="label" data-i18n="works_label">Lavori selezionati</span></div>
+    <div>
+      <h2 id="works-heading" data-i18n="works_heading" style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;font-style:italic;line-height:1.2;margin-bottom:24px;">Produzioni, sessioni,<br>orchestrazioni.</h2>
+      <p class="t-it" style="font-size:0.9rem;color:var(--dust);max-width:520px;line-height:1.85;">Una selezione di lavori che attraversa produzione, recording, mix, orchestrazione e scrittura. Progetti diversi, contesti diversi, un'unica direzione: dare alla musica una forma sonora riconoscibile, concreta e precisa.</p><p class="t-en" style="display:none;font-size:0.9rem;color:var(--dust);max-width:520px;line-height:1.85;">A selection of work spanning production, recording, mix, orchestration and writing. Different projects, different contexts, one direction: giving music a recognisable, concrete and precise sonic form.</p>
+      <a href="discografia.html" style="display:inline-block;margin-top:20px;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;opacity:0.7;transition:opacity 0.2s;" data-i18n="discography_link">Discografia completa →</a>
+    </div>
+  </div>
+  <div class="works-player-stack reveal">
+    <div class="covers-grid">
+
+    <!-- ── PRODUCTIONS ── -->
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/3oc2U6EouvUgxWAoCAos3y?si=0a4GmnkdT5i0mZKR-IoxGg" role="link" tabindex="0"><img alt="Pollio - Dopo la bomba" src="images/idx-11.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Pollio</span><span class="cover-title">Dopo la bomba</span><span class="cover-role">Producer</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/3sFEfOP6YUrndysnZeMaiT?si=11b43482affd43cf" role="link" tabindex="0"><img alt="Last Second Chance - Send Me A Sign" src="images/idx-12.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Last Second Chance</span><span class="cover-title">Send Me A Sign</span><span class="cover-role">Co-Producer</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/track/6B01KM5UN3gv5hbGBqjlGn?si=2d4995df1abd4f4c" role="link" tabindex="0"><img alt="Gabriella Marinaro - Yours Numbly" src="images/idx-13.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Gabriella Marinaro</span><span class="cover-title">Yours Numbly</span><span class="cover-role">Producer · Composer</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/track/36d0TZYDlE17jwLvZJIrHs?si=fa40877d9db14629" role="link" tabindex="0"><img alt="Gabriella Marinaro - Regina" src="images/idx-14.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Gabriella Marinaro</span><span class="cover-title">Regina</span><span class="cover-role">Producer</span></figcaption></figure>
+  <div id="future-works" style="display:none"><!-- future-works -->
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/track/4xcrZN6V7Nzj22rPkbQKYr?si=b994b29eb71f484e" role="link" tabindex="0"><img alt="Gabriella Marinaro - How To Love" src="images/idx-15.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Gabriella Marinaro</span><span class="cover-title">How To Love</span><span class="cover-role">Producer</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/track/58oa6ePZANG3KY3yVXS5dn?si=7c4c3495b523472f" role="link" tabindex="0"><img alt="rache. - Into This" src="images/idx-16.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">rache.</span><span class="cover-title">Into This</span><span class="cover-role">Producer · Composer</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/track/2mVKF1x12yALLklESC4FJg?si=9dfd126c85124832" role="link" tabindex="0"><img alt="isla - Berlino" src="images/idx-17.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">isla</span><span class="cover-title">Berlino / Canzone Per Dimenticare</span><span class="cover-role">Producer · Mix · Master</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/track/2gL55y8gWonY55sLZYVq3C?si=59ef2451545c450a" role="link" tabindex="0"><img alt="STF - nobody" src="images/idx-18.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">STF, FET BASTARDs</span><span class="cover-title">nobody</span><span class="cover-role">Producer</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/track/4wLxwM3ALOGnRr0Xc1kKgg?si=1160c9d3b23d47ba" role="link" tabindex="0"><img alt="Manuel Finotti - Forse Dovremmo Parlare" src="images/idx-19.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Manuel Finotti</span><span class="cover-title">Forse Dovremmo Parlare</span><span class="cover-role">Producer · Composer · Mix</span></figcaption></figure>
+
+    <!-- ── MUSICIAN ── -->
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/3HsOqLWPTRJGhX1FGAsEMM?si=_aplYaQ6Tg23ZibrrnAs5w" role="link" tabindex="0"><img alt="Marco Carta - Tieniti Forte" src="images/idx-20.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Marco Carta</span><span class="cover-title">Tieniti Forte</span><span class="cover-role">Acoustic Guitar</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/track/4JJPB2xUtNwZ07OytVa73J?si=dfbea14f4ac14a29" role="link" tabindex="0"><img alt="dile - Rewind" src="images/idx-21.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">dile</span><span class="cover-title">Rewind</span><span class="cover-role">Piano</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/45FBhILpUCTHHPtamSd8P9?si=KcH2MvDqRvOpP2fhYBrsTg" role="link" tabindex="0"><img alt="Mox - Figurati l'amore" src="images/idx-22.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Mox</span><span class="cover-title">Figurati l'amore</span><span class="cover-role">Arranger</span></figcaption></figure>
+
+    <!-- ── ENGINEER / MIX ── -->
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/14BbxMmEwA5iobxv4NZykX?si=vcUeNU56R6ykzAAmxfq1qA" role="link" tabindex="0"><img alt="Renato Zero - Zerosettanta Vol.2" src="images/idx-23.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Renato Zero</span><span class="cover-title">Zerosettanta Vol.2</span><span class="cover-role">Engineer</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/3ndzRNxUxwpUoNAfs3UgCG?si=VipDx4x_RyqmP-Kz4UAWhg" role="link" tabindex="0"><img alt="Eros Ramazzotti - Battito Infinito" src="images/idx-24.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Eros Ramazzotti</span><span class="cover-title">Battito Infinito</span><span class="cover-role">Orchestral Management · Score Preparation</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/2FLQ6iRvDiJFfhdgWyuBM0?si=PcC5vKbPSA6OReyd1EAlYw" role="link" tabindex="0"><img alt="Raf Tozzi - Due, la nostra storia" src="images/idx-25.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Raf Tozzi</span><span class="cover-title">Due, la nostra storia</span><span class="cover-role">Mix Engineer</span></figcaption></figure>
+    <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/4nDpojMM2Cq4SeXNZTW7UR?si=oWGoV37NTuGgU846HQ42yA" role="link" tabindex="0"><img alt="Ligabue - Start" src="images/idx-26.webp" width="420" height="420" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Ligabue</span><span class="cover-title">Start</span><span class="cover-role">Studio Assistant</span></figcaption></figure>
+  <!-- /future-works --></div>
+
+    </div>
+    <div class="works-spotify-strip">
+      <iframe data-spotify-src="https://open.spotify.com/embed/playlist/0GfOMBEbL0CdkEjT2tQwov?utm_source=generator&theme=0" title="Spotify — playlist di Jacopo Sam Federici" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+
+</div></div></section>
+
+
+<!-- CONTACT + FOOTER BANNER -->
+</main>
+
+<hr aria-hidden="true" style="border:none;height:1px;background:var(--ink);margin:0;">
+<section id="contact" style="background:var(--ink);padding:80px 0 0;">
+  <div style="max-width:var(--max);margin:0 auto;padding:0 56px;">
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 2.2fr;gap:0 80px;align-items:start;padding-bottom:0;">
+      <div>
+        <span id="t-contact-label" data-i18n="contact_label" style="font-size:0.63rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(244,241,235,0.35);display:block;">Disponibile per progetti</span>
+      </div>
+      <div>
+        <h2 id="contact-heading" data-i18n="contact_heading" style="font-family:var(--serif);font-size:clamp(2.2rem,4vw,4rem);font-weight:300;font-style:italic;color:var(--paper);line-height:1.1;margin-bottom:32px;">Creiamo qualcosa<br>di reale.<br>Insieme.</h2>
+        <p class="t-it" style="font-size:0.95rem;color:rgba(244,241,235,0.5);max-width:480px;line-height:1.9;margin-bottom:48px;">Disponibile per produzioni, songwriting, recording session, orchestrazioni e progetti costruiti intorno a un suono preciso, fisico e riconoscibile. In studio o da remoto, ovunque tu sia.</p><p class="t-en" style="display:none;font-size:0.95rem;color:rgba(244,241,235,0.5);max-width:480px;line-height:1.9;margin-bottom:48px;">Available for productions, songwriting, recording sessions, orchestrations and projects built around a precise, physical and recognisable sound. In the studio or remotely, wherever you are.</p>
+        <a href="mailto:hello@jsfederici.com" style="font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.7rem);font-weight:300;text-decoration:none;color:var(--paper);border-bottom:1px solid rgba(244,241,235,0.4);padding-bottom:4px;transition:opacity 0.25s;">hello@jsfederici.com</a>
+        <div style="display:flex;align-items:center;gap:24px;margin-top:48px;">
+          <a href="https://www.instagram.com/jsfederici/" target="_blank" style="display:inline-flex;width:28px;height:28px;opacity:0.5;transition:opacity 0.25s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5">
+            <img alt="Instagram" style="width:100%;height:100%;object-fit:contain;" src="images/idx-icon-27.webp" width="80" height="80" loading="lazy" decoding="async">
+          </a>
+          <a href="https://www.discogs.com/artist/6352539-Jacopo-Federici" target="_blank" style="display:inline-flex;width:28px;height:28px;opacity:0.5;transition:opacity 0.25s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5">
+            <img alt="Discogs" style="width:100%;height:100%;object-fit:contain;" src="images/idx-icon-28.webp" width="80" height="80" loading="lazy" decoding="async">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(244,241,235,0.12);margin-top:80px;padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <p style="font-size:0.6rem;letter-spacing:0.1em;color:rgba(244,241,235,0.6);" data-i18n="footer_rights">© 2026 Jacopo Sam Federici. Tutti i diritti riservati.</p>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <p style="font-size:0.6rem;letter-spacing:0.1em;color:rgba(244,241,235,0.6);">Cambiago · Milano</p>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:rgba(244,241,235,0.6);padding:0;font-weight:300;transition:color 0.2s;" onmouseover="this.style.color='rgba(244,241,235,1)'" onmouseout="this.style.color='rgba(244,241,235,0.6)'">↑ Top</button>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+
+<script>
+var I18N = {
+  nav_about:        { it: "Bio",            en: "About" },
+  nav_studio:       { it: "Volta Studio",   en: "Volta Studio" },
+  nav_works:        { it: "Lavori",         en: "Works" },
+  nav_contact:      { it: "Contatti",       en: "Contact" },
+  hero_sub:         { it: "Producer · Songwriter", en: "Producer · Songwriter" },
+  about_label:      { it: "Bio",            en: "About" },
+  bio_heading:      { it: "Un suono fisico,<br>che vive e rimane", en: "A physical sound<br>that lives and lasts" },
+  full_bio_link:    { it: "Biografia completa &nbsp;→", en: "Full Biography &nbsp;→" },
+  setup_link:       { it: "Setup completo &nbsp;→", en: "Full Setup &nbsp;→" },
+  studio_label:     { it: "Volta Studio",   en: "Volta Studio" },
+  studio_heading:   { it: "Una cantina del XIX secolo<br>per un suono contemporaneo.", en: "A 19th-century cellar<br>for a contemporary sound." },
+  setup_label:      { it: "Setup",          en: "Setup" },
+  setup_heading:    { it: "Carattere analogico.<br>Precisione digitale.", en: "Analogue character.<br>Digital precision." },
+  gear_recording:   { it: "Registrazione",  en: "Recording" },
+  gear_monitoring:  { it: "Monitoring",     en: "Monitoring" },
+  gear_tape:        { it: "Nastro &amp; Outboard", en: "Tape &amp; Outboard" },
+  gear_microphones: { it: "Microfoni",      en: "Microphones" },
+  gear_keyboards:   { it: "Tastiere",       en: "Keyboards" },
+  gear_guitars:     { it: "Chitarre · Basso", en: "Guitars · Bass" },
+  cabling:          { it: "<strong>Cablaggio:</strong> Mogami su tutta la catena.", en: "<strong>Cabling:</strong> Mogami throughout." },
+  patching:         { it: "<strong>Patching:</strong> 2× Signex CPT96 D25 (patchbay bantam non normalizzate).", en: "<strong>Patching:</strong> 2× Signex CPT96 D25 (non-normalized bantam patchbays)." },
+  works_label:      { it: "Lavori selezionati", en: "Selected Works" },
+  works_heading:    { it: "Produzioni, sessioni,<br>orchestrazioni.", en: "Productions, sessions,<br>orchestrations." },
+  discography_link: { it: "Discografia completa →", en: "Full Discography →" },
+  listen_label:     { it: "Ascolta",        en: "Listen" },
+  listen_heading:   { it: "Lavori",         en: "Works" },
+  contact_label:    { it: "Disponibile per progetti", en: "Available for Projects" },
+  contact_heading:  { it: "Creiamo qualcosa<br>di reale.<br>Insieme.", en: "Let&rsquo;s make<br>something real.<br>Together." },
+  footer_rights:    { it: "© 2026 Jacopo Sam Federici. Tutti i diritti riservati.", en: "© 2026 Jacopo Sam Federici. All rights reserved." }
+};
+
+function setLang(lang) {
+  var its = document.querySelectorAll('.t-it');
+  var ens = document.querySelectorAll('.t-en');
+  for (var i = 0; i < its.length; i++) its[i].style.display = lang === 'it' ? '' : 'none';
+  for (var i = 0; i < ens.length; i++) ens[i].style.display = lang === 'en' ? '' : 'none';
+
+  // Apply dictionary translations to all [data-i18n] elements
+  var nodes = document.querySelectorAll('[data-i18n]');
+  for (var j = 0; j < nodes.length; j++) {
+    var key = nodes[j].getAttribute('data-i18n');
+    if (I18N[key] && I18N[key][lang] != null) nodes[j].innerHTML = I18N[key][lang];
+  }
+
+  document.documentElement.lang = lang;
+
+  var bi = document.getElementById('btn-it');
+  var be = document.getElementById('btn-en');
+  bi.style.opacity = lang === 'it' ? '1' : '0.35';
+  bi.style.color = lang === 'it' ? '#0f0e0d' : '#999690';
+  bi.style.fontWeight = lang === 'it' ? '500' : '400';
+  be.style.opacity = lang === 'en' ? '1' : '0.35';
+  be.style.color = lang === 'en' ? '#0f0e0d' : '#999690';
+  be.style.fontWeight = lang === 'en' ? '500' : '400';
+  try { localStorage.setItem('jsf-lang', lang); } catch(e) {}
+}
+</script>
+
+<script>
+// Accordion gear mobile
+document.querySelectorAll('.gear-col h4').forEach(function(h4) {
+  h4.addEventListener('click', function() {
+    if(window.innerWidth > 900) return; // solo mobile
+    var col = h4.parentElement;
+    col.classList.toggle('open');
+  });
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+  // 0. Rispetta una scelta salvata dall'utente
+  var saved = null;
+  try { saved = localStorage.getItem('jsf-lang'); } catch(e) {}
+  if (saved === 'it' || saved === 'en') { setLang(saved); return; }
+
+  // 1. Controllo lingua browser (più affidabile e immediato del geo-IP)
+  var langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+  var browserIsIt = langs.some(function(l) { return (l || '').toLowerCase().indexOf('it') === 0; });
+
+  if (browserIsIt) {
+    setLang('it'); // applica anche le traduzioni data-i18n
+    return;
+  }
+
+  // 2. Browser non in italiano: verifichiamo l'IP. Se IP italiano → IT, altrimenti → EN
+  fetch('https://api.country.is/')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      setLang(d && d.country === 'IT' ? 'it' : 'en');
+    })
+    .catch(function() {
+      setLang('en'); // API fallisce + browser non IT → fallback EN
+    });
+});
+</script>
+<script>
+// Cover albums: desktop = click apre Spotify; mobile = primo tap mostra info, secondo tap apre Spotify
+(function(){
+  var isTouch = window.matchMedia('(hover: none)').matches;
+  var resetTimer;
+  function clearTapped(){
+    document.querySelectorAll('.cover-item.tapped').forEach(function(el){ el.classList.remove('tapped'); });
+  }
+  document.querySelectorAll('.cover-item[data-href]').forEach(function(item){
+    item.addEventListener('click', function(e){
+      var href = item.dataset.href;
+      if (!href) return;
+      if (!isTouch) {
+        window.open(href, '_blank', 'noopener');
+        return;
+      }
+      // Mobile: due-tap
+      if (item.classList.contains('tapped')) {
+        window.open(href, '_blank', 'noopener');
+        item.classList.remove('tapped');
+        clearTimeout(resetTimer);
+      } else {
+        clearTapped();
+        item.classList.add('tapped');
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(function(){ item.classList.remove('tapped'); }, 4000);
+      }
+    });
+    // Accessibilità: Enter o Space attivano
+    item.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        item.click();
+      }
+    });
+  });
+  // Tap fuori dalle cover su mobile chiude lo stato tapped
+  if (isTouch) {
+    document.addEventListener('click', function(e){
+      if (!e.target.closest('.cover-item')) clearTapped();
+    });
+  }
+})();
+</script>
+
+
+
+<script>
+// Carica il player Spotify solo quando sta per entrare nello schermo (azzera il JS di terze parti all'avvio)
+(function(){
+  var frames = document.querySelectorAll('iframe[data-spotify-src]');
+  if(!frames.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var f = e.target;
+        f.src = f.getAttribute('data-spotify-src');
+        f.removeAttribute('data-spotify-src');
+        obs.unobserve(f);
+      }
+    });
+  }, {rootMargin: '400px 0px'});
+  frames.forEach(function(f){ obs.observe(f); });
+})();
+</script>
+</body>
+</html>
