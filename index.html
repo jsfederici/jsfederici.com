@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jacopo Sam Federici - Producer · Songwriter</title>
-  <meta name="description" content="Jacopo Sam Federici: producer, songwriter e arrangiatore a Milano. Volta Studio, registrazione voci e strumenti, produzioni musicali, orchestrazioni. Cambiago, provincia di Milano.">
-  <meta name="keywords" content="studio di registrazione Milano, produzione musicale Milano, registrare voce Milano, registrare strumenti Milano, producer Milano, arrangiatore Milano, studio recording provincia Milano, Cambiago, FET BASTARDs, songwriter Milano, orchestrazione Milano">
+  <title>Jacopo Sam Federici — Producer, Studio di Registrazione e Produzione Musicale | Milano</title>
+  <meta name="description" content="Producer, arrangiatore e compositore a Milano. Volta Studio: produzione discografica, registrazione voce e strumenti, mixaggio, orchestrazioni, sessioni orchestrali e composizione su brief. Sessioni in studio nell'area di Milano e produzioni da remoto in Italia e all'estero.">
+  <meta name="keywords" content="studio di registrazione Milano, studio di produzione musicale Milano, produzione discografica, mixaggio, missaggio, orchestrazioni, orchestra, arrangiamenti, jingle, composizione su brief, producer Milano, arrangiatore, musicista di studio, registrazione voce, registrazione strumenti, songwriting, Volta Studio, Cambiago, hinterland Milano, da remoto, FET Bastards">
   <meta name="author" content="Jacopo Sam Federici">
   <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="IT-MI">
+  <meta name="geo.placename" content="Cambiago, Milano">
+  <meta name="geo.position" content="45.5986;9.4079">
+  <meta name="ICBM" content="45.5986, 9.4079">
+  <meta name="theme-color" content="#0f0e0d">
   <link rel="canonical" href="https://www.jsfederici.com/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jacopo Sam Federici">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:url" content="https://www.jsfederici.com/">
   <meta property="og:title" content="Jacopo Sam Federici - Producer · Songwriter">
   <meta property="og:description" content="Jacopo Sam Federici è un producer e songwriter basato a Milano. Co-founder del duo FET BASTARDs.">
@@ -323,58 +330,104 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://www.jsfederici.com/#website",
+        "url": "https://www.jsfederici.com/",
+        "name": "Jacopo Sam Federici",
+        "inLanguage": ["it-IT", "en"],
+        "publisher": { "@id": "https://www.jsfederici.com/#person" }
+      },
+      {
         "@type": "Person",
         "@id": "https://www.jsfederici.com/#person",
         "name": "Jacopo Sam Federici",
         "jobTitle": "Music Producer, Songwriter, Arranger",
         "url": "https://www.jsfederici.com/",
+        "image": "https://www.jsfederici.com/FOTO/00%20Head/og-image.jpg",
         "sameAs": [
-          "https://www.instagram.com/jacoposamfederici/",
-          "https://www.discogs.com/artist/jacopo-sam-federici"
+          "https://www.instagram.com/jsfederici/",
+          "https://www.instagram.com/fetbastards/",
+          "https://www.discogs.com/artist/6352539-Jacopo-Federici"
         ],
-        "knowsAbout": ["Music Production", "Recording", "Songwriting", "Orchestration", "Mixing"],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "FET BASTARDs"
-        }
-      },
-      {
-        "@type": "MusicVenue",
-        "@id": "https://www.jsfederici.com/#studio",
-        "name": "Volta Studio",
-        "description": "Studio di registrazione e produzione musicale a Cambiago, provincia di Milano. Volte a botte lombarde del XIX secolo, trattamento acustico custom, 16 canali a 96kHz.",
+        "knowsAbout": [
+          "Produzione musicale", "Produzione discografica", "Recording",
+          "Registrazione voce", "Registrazione strumenti", "Mixaggio",
+          "Songwriting", "Arrangiamento", "Orchestrazione",
+          "Sessioni orchestrali", "Composizione su brief", "Jingle"
+        ],
+        "worksFor": { "@id": "https://www.jsfederici.com/#fetbastards" },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Cambiago",
           "addressRegion": "MI",
           "addressCountry": "IT"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "addressCountry": "IT",
-          "addressRegion": "Milano"
-        },
-        "url": "https://www.jsfederici.com/#studio",
-        "telephone": "",
-        "email": "hello@jsfederici.com",
-        "priceRange": "$$",
-        "openingHours": "Mo-Su 09:00-22:00"
+        }
       },
       {
-        "@type": "LocalBusiness",
-        "@id": "https://www.jsfederici.com/#business",
-        "name": "Jacopo Sam Federici - Produzione Musicale Milano",
-        "description": "Produzione musicale, recording, orchestrazioni e songwriting a Milano e provincia. Registrazione voci, strumenti, produzioni complete.",
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://www.jsfederici.com/#studio",
+        "name": "Volta Studio \u2014 Jacopo Sam Federici",
+        "alternateName": ["Volta Studio", "Volta Studio Milano"],
+        "description": "Studio di registrazione e produzione musicale a Cambiago, alle porte di Milano. Produzione discografica, registrazione voce e strumenti, mixaggio, orchestrazioni, sessioni orchestrali e composizione su brief. Sessioni in studio nell'area milanese e produzioni da remoto in Italia e all'estero.",
         "url": "https://www.jsfederici.com/",
+        "image": "https://www.jsfederici.com/FOTO/00%20Head/og-image.jpg",
         "email": "hello@jsfederici.com",
+        "priceRange": "$$",
+        "founder": { "@id": "https://www.jsfederici.com/#person" },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Cambiago",
-          "addressRegion": "Milano",
+          "addressRegion": "MI",
+          "postalCode": "20040",
           "addressCountry": "IT"
         },
-        "areaServed": ["Milano", "Provincia di Milano", "Italia"],
-        "serviceType": ["Produzione musicale", "Recording", "Songwriting", "Orchestrazione", "Mixing", "Registrazione voci", "Registrazione strumenti"]
+        "geo": { "@type": "GeoCoordinates", "latitude": 45.5986, "longitude": 9.4079 },
+        "areaServed": [
+          { "@type": "City", "name": "Milano" },
+          { "@type": "AdministrativeArea", "name": "Citt\u00e0 Metropolitana di Milano" },
+          { "@type": "City", "name": "Monza" },
+          { "@type": "AdministrativeArea", "name": "Monza e Brianza" },
+          { "@type": "City", "name": "Cambiago" },
+          { "@type": "City", "name": "Gorgonzola" },
+          { "@type": "City", "name": "Cernusco sul Naviglio" },
+          { "@type": "City", "name": "Sesto San Giovanni" },
+          { "@type": "City", "name": "Vimercate" },
+          { "@type": "City", "name": "Segrate" },
+          { "@type": "AdministrativeArea", "name": "Lombardia" },
+          { "@type": "Country", "name": "Italia" }
+        ],
+        "serviceType": [
+          "Produzione discografica", "Registrazione", "Mixaggio",
+          "Orchestrazione", "Sessioni orchestrali", "Songwriting",
+          "Composizione su brief", "Jingle", "Arrangiamento"
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "name": "Produzione e collaborazioni da remoto",
+          "serviceLocation": { "@type": "VirtualLocation", "url": "https://www.jsfederici.com/" }
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servizi di produzione musicale",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Produzione discografica musicale", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Registrazione voce e strumenti", "areaServed": "Milano" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mixaggio / Missaggio", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Orchestrazione e arrangiamento", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sessioni orchestrali", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Composizione su brief", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jingle e musica per pubblicit\u00e0", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Songwriting", "areaServed": "IT" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Musicista di studio / session", "areaServed": "Milano" } }
+          ]
+        }
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://www.jsfederici.com/#fetbastards",
+        "name": "FET Bastards",
+        "url": "https://www.instagram.com/fetbastards/",
+        "member": { "@id": "https://www.jsfederici.com/#person" }
       }
     ]
   }
@@ -566,7 +619,7 @@
   <div style="border-top:1px solid rgba(244,241,235,0.12);margin-top:80px;padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
     <p style="font-size:0.6rem;letter-spacing:0.1em;color:rgba(244,241,235,0.6);" data-i18n="footer_rights">© 2026 Jacopo Sam Federici. Tutti i diritti riservati.</p>
     <div style="display:flex;align-items:center;gap:20px;">
-      <p style="font-size:0.6rem;letter-spacing:0.1em;color:rgba(244,241,235,0.6);">Cambiago · Milano</p>
+      <p style="font-size:0.6rem;letter-spacing:0.1em;color:rgba(244,241,235,0.6);">Cambiago · Milano · Remote</p>
       <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:rgba(244,241,235,0.6);padding:0;font-weight:300;transition:color 0.2s;" onmouseover="this.style.color='rgba(244,241,235,1)'" onmouseout="this.style.color='rgba(244,241,235,0.6)'">↑ Top</button>
     </div>
   </div>
