@@ -331,7 +331,7 @@
       /* footer mobile: unica riga centrata */
       #contact #contact-footer-bar{margin-top:24px !important;padding:28px 20px !important;border-top-color:rgba(244,241,235,0.28) !important;justify-content:center !important;align-items:center !important;gap:0 !important;flex-wrap:wrap !important}
       #contact-footer-bar>p{font-size:0.6rem !important;letter-spacing:0.1em !important;margin:0 !important;text-align:center !important;color:rgba(244,241,235,0.6) !important}
-      #contact-footer-bar>p::after{content:" · Cambiago · Milano"}
+      #contact-footer-bar>p::after{content:"Cambiago · Milano";display:block;margin-top:3px}
       #contact-footer-bar>div{display:none !important}
     }
   </style>
@@ -809,7 +809,9 @@ window.addEventListener('DOMContentLoaded', function() {
 (function(){
   var lastY = window.pageYOffset;
   var btn = null;
+  var idleTimer = null;
   function getBtn(){ return btn || (btn = document.querySelector('.scroll-top')); }
+  function isMobile(){ return window.matchMedia('(max-width:900px)').matches; }
   // nascosto di default al caricamento
   document.addEventListener('DOMContentLoaded', function(){ getBtn().classList.remove('visible'); });
   window.addEventListener('scroll', function(){
@@ -817,6 +819,11 @@ window.addEventListener('DOMContentLoaded', function() {
     if(y < lastY && y > 400){ getBtn().classList.add('visible'); }
     else { getBtn().classList.remove('visible'); }
     lastY = y;
+    // mobile: quando ci si ferma, nascondi (così non si sovrappone al footer)
+    if(isMobile()){
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(function(){ getBtn().classList.remove('visible'); }, 800);
+    }
   }, {passive:true});
 })();
 </script>
