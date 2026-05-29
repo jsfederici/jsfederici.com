@@ -1,0 +1,11 @@
+# robots.txt — Jacopo Sam Federici
+User-agent: *
+Allow: /
+
+# Blocca i bot AI di scraping (opzionale — rimuovi se non ti interessa)
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://www.jsfederici.com/sitemap.xml
