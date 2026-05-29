@@ -203,7 +203,7 @@
     .footer-icon:hover{opacity:0.75}
     .footer-icon img{width:100%;height:100%;object-fit:contain}
 
-    .scroll-top{position:fixed;bottom:32px;right:36px;width:44px;height:44px;background:var(--ink);color:var(--paper);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:300;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;gap:1px}
+    .scroll-top{position:fixed;bottom:32px;right:28px;width:40px;height:40px;background:var(--ink);color:var(--paper);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:300;font-size:1.1rem;line-height:1;border:none;padding:0}
     .scroll-top.visible{opacity:0.6}
     .scroll-top:hover{opacity:1}
 
@@ -316,7 +316,8 @@
       #contact p{font-size:0.92rem !important;max-width:100% !important;margin-bottom:32px !important}
       #contact a[href^="mailto"]{font-size:1.2rem !important}
       #contact-social{justify-content:center !important;margin-top:20px !important}
-      #contact-footer-bar{margin-top:36px !important;padding:20px 20px !important}
+      #contact-footer-bar{margin-top:28px !important;padding:16px 20px !important;gap:4px !important;flex-direction:column !important;align-items:flex-start !important}
+      #contact-footer-bar p{font-size:0.5rem !important}
       #contact > div > div:last-child{
         flex-direction:column !important;
         gap:8px !important;
@@ -591,7 +592,7 @@
   <!-- /future-works --></div>
 
     </div>
-    <div class="works-spotify-strip">
+    <div class="works-spotify-strip" id="spotify-strip" style="opacity:0;transition:opacity 0.6s;">
       <iframe data-spotify-src="https://open.spotify.com/embed/playlist/0GfOMBEbL0CdkEjT2tQwov?utm_source=generator&theme=0" title="Spotify — playlist di Jacopo Sam Federici" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </div>
@@ -788,6 +789,8 @@ window.addEventListener('DOMContentLoaded', function() {
         f.src = f.getAttribute('data-spotify-src');
         f.removeAttribute('data-spotify-src');
         obs.unobserve(f);
+        var strip = document.getElementById('spotify-strip');
+        if(strip) strip.style.opacity = '1';
       }
     });
   }, {rootMargin: '400px 0px'});
@@ -795,21 +798,16 @@ window.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 
-<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Torna in cima">↑<br>Top</button>
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Torna in cima">↑</button>
 
 <script>
 (function(){
-  var lastY = window.pageYOffset;
   var btn = null;
   window.addEventListener('scroll', function(){
     if(!btn) btn = document.querySelector('.scroll-top');
     var y = window.pageYOffset;
-    if(y < lastY && y > 280){
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
-    lastY = y;
+    if(y > 400){ btn.classList.add('visible'); }
+    else { btn.classList.remove('visible'); }
   }, {passive:true});
 })();
 </script>
