@@ -40,14 +40,14 @@
     .lang-switch span{color:var(--rule);font-size:0.7rem}
     .lang-switch button{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);padding:0}
     #btn-it{color:var(--ink);opacity:1;font-weight:500}
-    #btn-en{color:var(--dust);opacity:0.35;font-weight:400}
+    #btn-en{color:#63625d;font-weight:400}
     .bio-section{padding:100px 0 100px;display:grid;grid-template-columns:1fr 2.2fr;gap:0 80px;align-items:start}
     .bio-left{padding-top:6px}
     .bio-left .label{margin-bottom:24px}
     .bio-left img{width:100%;height:auto;border-radius:6px;opacity:0.92}
-    .bio-left .caption{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dust);margin-top:10px;opacity:0.7}
+    .bio-left .caption{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#63625d;margin-top:10px;opacity:0.7}
     .bio-right h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;font-style:italic;line-height:1.2;margin-bottom:40px}
-    .bio-right p{font-size:0.9rem;color:var(--dust);line-height:1.85;margin-bottom:24px}
+    .bio-right p{font-size:0.9rem;color:#63625d;line-height:1.85;margin-bottom:24px}
     .bio-right em{font-style:italic;color:var(--ink);font-family:var(--serif)}
     .bio-right a{color:inherit;border-bottom:1px solid var(--rule);text-decoration:none}
     footer{border-top:1px solid var(--rule);padding:28px 56px}
@@ -175,8 +175,8 @@ function setLang(lang) {
   var el = document.getElementById('bio-label');
   if(el) el.textContent = lang==='it' ? 'Biografia' : 'Biography';
   var bi=document.getElementById('btn-it'), be=document.getElementById('btn-en');
-  bi.style.opacity=lang==='it'?'1':'0.35'; bi.style.color=lang==='it'?'#0f0e0d':'#7a7872'; bi.style.fontWeight=lang==='it'?'500':'400';
-  be.style.opacity=lang==='en'?'1':'0.35'; be.style.color=lang==='en'?'#0f0e0d':'#7a7872'; be.style.fontWeight=lang==='en'?'500':'400';
+  bi.style.color=lang==='it'?'#0f0e0d':'#63625d'; bi.style.fontWeight=lang==='it'?'500':'400';
+  be.style.color=lang==='en'?'#0f0e0d':'#63625d'; be.style.fontWeight=lang==='en'?'500':'400';
   document.documentElement.lang = lang;
   try { localStorage.setItem('jsf-lang', lang); } catch(e) {}
 }
@@ -185,9 +185,7 @@ window.addEventListener('DOMContentLoaded', function() {
   if(saved==='it'||saved==='en'){ setLang(saved); return; }
   var langs=navigator.languages||[navigator.language||''];
   if(langs.some(function(l){ return (l||'').toLowerCase().indexOf('it')===0; })){ setLang('it'); return; }
-  fetch('https://api.country.is/').then(function(r){return r.json();}).then(function(d){
-    setLang(d&&d.country==='IT'?'it':'en');
-  }).catch(function(){ setLang('en'); });
+  setLang('en');
 });
 </script>
 </body>
