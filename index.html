@@ -377,6 +377,28 @@
     ]
   }
   </script>
+<script>
+(function(){
+  if(!location.hash) return;
+  var s=document.createElement('style');
+  s.id='hash-nav-hide';
+  s.textContent='body{opacity:0!important;pointer-events:none}';
+  document.head.appendChild(s);
+  document.addEventListener('DOMContentLoaded',function(){
+    document.documentElement.style.scrollBehavior='auto';
+    var el=document.querySelector(location.hash);
+    if(el){
+      var top=el.getBoundingClientRect().top+window.pageYOffset-90;
+      window.scrollTo(0,top);
+    }
+    var hide=document.getElementById('hash-nav-hide');
+    if(hide) hide.remove();
+    requestAnimationFrame(function(){
+      document.documentElement.style.scrollBehavior='';
+    });
+  });
+})();
+</script>
 </head>
 <body>
 
