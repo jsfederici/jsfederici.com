@@ -506,7 +506,7 @@
   <div class="bio-label">
         <span class="label" style="margin-bottom:20px;" data-i18n="about_label">Bio</span>
         <div style="margin-top:24px;overflow:hidden;border-radius:6px;">
-          <img alt="Budapest Art Orchestra - Eros Ramazzotti" style="width:100%;height:auto;display:block;opacity:0.92;" src="images/idx-03.webp" width="780" height="585" loading="lazy" decoding="async">
+          <img alt="Budapest Art Orchestra - Eros Ramazzotti" style="width:100%;height:auto;display:block;opacity:0.92;" src="images/idx-03.webp" srcset="images/idx-03-sm.webp 440w, images/idx-03.webp 780w" sizes="(max-width:900px) 100vw, 440px" width="780" height="585" loading="lazy" decoding="async">
         </div>
         <p style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#63625d;margin-top:10px;">Budapest Art Orchestra - Eros Ramazzotti</p>
       </div>
@@ -549,8 +549,8 @@
   <div class="studio-grid reveal">
     <div class="sg-item"><img alt="Volta Studio - control room" src="images/idx-06.webp" width="848" height="1060" loading="lazy" decoding="async" srcset="images/idx-06-sm.webp 344w, images/idx-06.webp 848w" sizes="(max-width:900px) 50vw, 452px"></div>
     <div class="sg-item"><img alt="Fuchs piano - Revox A77" src="images/idx-07.webp" width="1060" height="795" loading="lazy" decoding="async" srcset="images/idx-07-sm.webp 430w, images/idx-07.webp 1060w" sizes="(max-width:900px) 50vw, 323px"></div>
-    <div class="sg-item"><img alt="Ribbon mic inside piano" src="images/idx-08.webp" width="560" height="700" loading="lazy" decoding="async"></div>
-    <div class="sg-item"><img alt="Rack - Apollo, Cloudlifter, API" src="images/idx-09.webp" width="560" height="700" loading="lazy" decoding="async"></div>
+    <div class="sg-item"><img alt="Ribbon mic inside piano" src="images/idx-08.webp" srcset="images/idx-08-sm.webp 360w, images/idx-08.webp 560w" sizes="(max-width:900px) 50vw, 360px" width="560" height="700" loading="lazy" decoding="async"></div>
+    <div class="sg-item"><img alt="Rack - Apollo, Cloudlifter, API" src="images/idx-09.webp" srcset="images/idx-09-sm.webp 360w, images/idx-09.webp 560w" sizes="(max-width:900px) 50vw, 360px" width="560" height="700" loading="lazy" decoding="async"></div>
     <div class="sg-item"><img alt="Prophet-6 - Moog" src="images/idx-10.webp" srcset="images/idx-10-sm.webp 450w, images/idx-10.webp 900w" sizes="(max-width:900px) 50vw, 452px" width="900" height="540" loading="lazy" decoding="async"></div>
 
   </div>
@@ -813,15 +813,17 @@ window.addEventListener('DOMContentLoaded', function() {
   // nascosto di default al caricamento
   document.addEventListener('DOMContentLoaded', function(){ getBtn().classList.remove('visible'); });
   window.addEventListener('scroll', function(){
-    var y = window.pageYOffset;
-    if(y < lastY && y > 400){ getBtn().classList.add('visible'); }
-    else { getBtn().classList.remove('visible'); }
-    lastY = y;
-    // mobile: quando ci si ferma, nascondi (così non si sovrappone al footer)
-    if(isMobile()){
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(function(){ getBtn().classList.remove('visible'); }, 800);
-    }
+    requestAnimationFrame(function(){
+      var y = window.pageYOffset;
+      if(y < lastY && y > 400){ getBtn().classList.add('visible'); }
+      else { getBtn().classList.remove('visible'); }
+      lastY = y;
+      // mobile: quando ci si ferma, nascondi (così non si sovrappone al footer)
+      if(isMobile()){
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(function(){ getBtn().classList.remove('visible'); }, 800);
+      }
+    });
   }, {passive:true});
 })();
 </script>
