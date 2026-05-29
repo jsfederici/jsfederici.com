@@ -327,10 +327,12 @@
       [class="studio-header reveal"]{grid-template-columns:1fr !important;gap:12px !important}
 
       [style*="padding:56px 0 56px"]{font-size:0.9rem !important}
-      /* footer bar mobile */
-      #contact-footer-bar{margin-top:24px !important;padding:22px 20px 14px !important;flex-direction:column !important;align-items:flex-start !important;gap:6px !important}
-      #contact-footer-bar p{font-size:0.48rem !important;letter-spacing:0.08em !important;margin:0 !important;color:rgba(244,241,235,0.6) !important}
-      #contact-footer-bar>div{margin:0 !important}
+
+      /* footer mobile: unica riga centrata */
+      #contact-footer-bar{margin-top:24px !important;padding:16px 20px !important;justify-content:center !important;align-items:center !important;gap:0 !important;flex-wrap:wrap !important}
+      #contact-footer-bar>p{font-size:0.44rem !important;letter-spacing:0.07em !important;margin:0 !important;text-align:center !important;color:rgba(244,241,235,0.6) !important}
+      #contact-footer-bar>p::after{content:" · Cambiago · Milano"}
+      #contact-footer-bar>div{display:none !important}
     }
   </style>
   <script type="application/ld+json">
@@ -807,14 +809,13 @@ window.addEventListener('DOMContentLoaded', function() {
 (function(){
   var lastY = window.pageYOffset;
   var btn = null;
+  function getBtn(){ return btn || (btn = document.querySelector('.scroll-top')); }
+  // nascosto di default al caricamento
+  document.addEventListener('DOMContentLoaded', function(){ getBtn().classList.remove('visible'); });
   window.addEventListener('scroll', function(){
-    if(!btn) btn = document.querySelector('.scroll-top');
     var y = window.pageYOffset;
-    if(y < lastY && y > 400){
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
+    if(y < lastY && y > 400){ getBtn().classList.add('visible'); }
+    else { getBtn().classList.remove('visible'); }
     lastY = y;
   }, {passive:true});
 })();
