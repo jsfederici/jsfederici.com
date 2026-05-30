@@ -223,13 +223,7 @@
         <p class="t-en" style="display:none">Be specific if you can: musical style, context, what you have to work with, where you want to land. More context, sharper answer.</p>
         <div class="examples">
           <h4 data-i18n="examples_label">Esempi</h4>
-          <div class="chips">
-            <button type="button" class="example-btn chip" data-q-it="Come registro una chitarra acustica intimista con un ribbon, in modo creativo?" data-q-en="How do I record an intimate acoustic guitar with a ribbon, creatively?">Chitarra acustica con ribbon</button>
-            <button type="button" class="example-btn chip" data-q-it="Spiegami il principio del rear bus di Andrew Scheps e quando ha senso usarlo" data-q-en="Explain Andrew Scheps' rear bus principle and when it makes sense">Il rear bus di Scheps</button>
-            <button type="button" class="example-btn chip" data-q-it="Come imposto il gain staging in Pro Tools per un mix pulito con plugin analog-modeled?" data-q-en="How do I set gain staging in Pro Tools for a clean mix with analog-modeled plugins?">Gain staging in Pro Tools</button>
-            <button type="button" class="example-btn chip" data-q-it="Voglio il suono di basso Motown di James Jamerson. Come ci arrivo tra strumento, tecnica e mix?" data-q-en="I want James Jamerson's Motown bass sound. How do I get there - instrument, technique, mix?">Il basso Motown di Jamerson</button>
-            <button type="button" class="example-btn chip" data-q-it="Trick creativi per registrare una chitarra elettrica con un ampli vintage piccolo" data-q-en="Creative tricks for recording electric guitar with a small vintage amp">Chitarra elettrica, ampli vintage</button>
-          </div>
+          <div class="chips" id="chips"></div>
         </div>
       </div>
 
@@ -372,6 +366,10 @@ function setLang(lang){
   ta.placeholder = lang === 'it'
     ? "Es. 'Sto registrando una chitarra elettrica per un brano alt-rock. Ho un Fender Champ vintage e un Royer R-121. Come la riprendo e con che trick la rendo interessante?'"
     : "E.g. 'I'm recording electric guitar for an alt-rock track. I have a vintage Fender Champ and a Royer R-121. How do I mic it and what tricks make it interesting?'";
+  // Update dynamic example chips to current language
+  document.querySelectorAll('#chips .example-btn').forEach(b => {
+    b.textContent = lang === 'en' ? b.getAttribute('data-label-en') : b.getAttribute('data-label-it');
+  });
 }
 
 // Init language
@@ -382,15 +380,66 @@ const ta = document.getElementById('question');
 const counter = document.getElementById('counter');
 ta.addEventListener('input', () => { counter.textContent = ta.value.length; });
 
-// Example buttons
-document.querySelectorAll('.example-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = getLang();
-    ta.value = btn.getAttribute(lang === 'en' ? 'data-q-en' : 'data-q-it');
-    counter.textContent = ta.value.length;
-    ta.focus();
+// Example pool - 5 random ones shown on each page load
+const EXAMPLE_POOL = [
+  {li:"Chitarra acustica con ribbon", le:"Acoustic guitar with a ribbon", qi:"Come registro una chitarra acustica intimista con un ribbon, in modo creativo?", qe:"How do I record an intimate acoustic guitar with a ribbon, creatively?"},
+  {li:"Il rear bus di Scheps", le:"Scheps' rear bus", qi:"Spiegami il principio del rear bus di Andrew Scheps e quando ha senso usarlo", qe:"Explain Andrew Scheps' rear bus principle and when it makes sense"},
+  {li:"Gain staging in Pro Tools", le:"Gain staging in Pro Tools", qi:"Come imposto il gain staging in Pro Tools per un mix pulito con plugin analog-modeled?", qe:"How do I set gain staging in Pro Tools for a clean mix with analog-modeled plugins?"},
+  {li:"Il basso Motown di Jamerson", le:"Jamerson's Motown bass", qi:"Voglio il suono di basso Motown di James Jamerson. Come ci arrivo tra strumento, tecnica e mix?", qe:"I want James Jamerson's Motown bass sound. How do I get there - instrument, technique, mix?"},
+  {li:"Chitarra elettrica, ampli vintage", le:"Electric guitar, vintage amp", qi:"Trick creativi per registrare una chitarra elettrica con un ampli vintage piccolo", qe:"Creative tricks for recording electric guitar with a small vintage amp"},
+  {li:"Comprimere una voce rap", le:"Compressing a rap vocal", qi:"Come comprimo una voce rap moderna perché stia davanti nel mix senza pompare?", qe:"How do I compress a modern rap vocal so it sits up front without pumping?"},
+  {li:"De-essing senza artefatti", le:"De-essing without artifacts", qi:"Come faccio un de-essing pulito su una voce sibilante senza renderla spenta?", qe:"How do I de-ess a sibilant vocal cleanly without making it dull?"},
+  {li:"Reverb alla Clearmountain", le:"Clearmountain-style reverb", qi:"Come ottengo quei riverberi vivi e profondi sulla voce in stile Bob Clearmountain anni 80?", qe:"How do I get those lush, deep vocal reverbs in 80s Bob Clearmountain style?"},
+  {li:"Batteria in una stanza piccola", le:"Drums in a small room", qi:"Come registro una batteria che suoni grande in una stanza piccola e poco trattata?", qe:"How do I record drums that sound big in a small, barely treated room?"},
+  {li:"Master a -14 LUFS per Spotify", le:"Mastering to -14 LUFS", qi:"Come affronto il loudness in mastering puntando a -14 LUFS senza schiacciare la dinamica?", qe:"How do I approach loudness in mastering targeting -14 LUFS without crushing dynamics?"},
+  {li:"Parallel compression batteria", le:"Drum parallel compression", qi:"Come imposto una parallel compression efficace sul bus della batteria?", qe:"How do I set up effective parallel compression on the drum bus?"},
+  {li:"Microfonare un piano verticale", le:"Miking an upright piano", qi:"Qual è il modo migliore per microfonare un pianoforte verticale per un brano pop intimo?", qe:"What's the best way to mic an upright piano for an intimate pop track?"},
+  {li:"Saturazione analogica ITB", le:"Analog saturation ITB", qi:"Come uso la saturazione in the box per dare calore analogico a un mix troppo digitale?", qe:"How do I use saturation in the box to add analog warmth to an overly digital mix?"},
+  {li:"Comping vocale in Pro Tools", le:"Vocal comping in Pro Tools", qi:"Come gestisco il comping di una voce con le playlist in Pro Tools nel modo più veloce?", qe:"What's the fastest way to comp a vocal using playlists in Pro Tools?"},
+  {li:"Il suono di Nigel Godrich", le:"Nigel Godrich's sound", qi:"Come si avvicina al suono di chitarra e produzione di Nigel Godrich con i Radiohead?", qe:"How do I get close to Nigel Godrich's guitar and production sound with Radiohead?"},
+  {li:"Sidechain creativo", le:"Creative sidechain", qi:"Idee per usare il sidechain in modo creativo tra synth e cassa oltre il classico pompaggio EDM", qe:"Ideas for using sidechain creatively between synth and kick beyond the classic EDM pump"},
+  {li:"Tele o Strat per il mix?", le:"Tele or Strat for the mix?", qi:"In un arrangiamento pop-rock affollato, meglio una Telecaster o una Stratocaster e perché?", qe:"In a busy pop-rock arrangement, Telecaster or Stratocaster, and why?"},
+  {li:"Trattare una stanza piccola", le:"Treating a small room", qi:"Da dove parto per trattare acusticamente una stanza piccola da home studio con poco budget?", qe:"Where do I start to acoustically treat a small home-studio room on a low budget?"},
+  {li:"Preamp per voce calda", le:"Preamp for a warm vocal", qi:"Che tipo di preamp scelgo per una voce maschile calda e intima, e perché?", qe:"What kind of preamp should I choose for a warm, intimate male vocal, and why?"},
+  {li:"Glue sul drum bus", le:"Glue on the drum bus", qi:"Come uso la bus compression per dare coesione e glue al bus della batteria?", qe:"How do I use bus compression to add cohesion and glue to the drum bus?"}
+];
+
+function shuffle(a){
+  const arr = a.slice();
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+function renderExamples(){
+  const container = document.getElementById('chips');
+  if(!container) return;
+  const picked = shuffle(EXAMPLE_POOL).slice(0, 5);
+  const lang = getLang();
+  container.innerHTML = '';
+  picked.forEach(ex => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'example-btn chip';
+    btn.setAttribute('data-q-it', ex.qi);
+    btn.setAttribute('data-q-en', ex.qe);
+    btn.setAttribute('data-label-it', ex.li);
+    btn.setAttribute('data-label-en', ex.le);
+    btn.textContent = lang === 'en' ? ex.le : ex.li;
+    btn.addEventListener('click', () => {
+      const L = getLang();
+      ta.value = btn.getAttribute(L === 'en' ? 'data-q-en' : 'data-q-it');
+      counter.textContent = ta.value.length;
+      ta.focus();
+    });
+    container.appendChild(btn);
   });
-});
+}
+
+// Show a fresh set of examples on load
+renderExamples();
 
 // Ask
 const askBtn = document.getElementById('ask-btn');
