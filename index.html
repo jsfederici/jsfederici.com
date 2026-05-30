@@ -125,8 +125,12 @@
     .section-rule{border:none;border-top:1px solid var(--rule)}
     .label{font-size:0.63rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);display:block;opacity:0.6}
 
-    .bio-section{padding:80px 0;display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start;overflow:hidden}
-    .bio-label{padding-top:6px}
+    .bio-section{padding:80px 0;display:grid;grid-template-columns:1.4fr 2fr;grid-template-rows:auto 1fr;gap:0 60px;align-items:start;overflow:hidden}
+    .bio-label{grid-column:1;grid-row:1;padding-top:6px}
+    .bio-text{grid-column:2;grid-row:1/span 2}
+    .bio-photo{grid-column:1;grid-row:2;margin-top:24px}
+    .bio-photo > div{overflow:hidden;border-radius:6px}
+    .bio-photo p{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#63625d;margin-top:10px}
     .bio-text h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;font-style:italic;line-height:1.2;margin-bottom:40px}
     .bio-text p{font-size:0.9rem;color:#63625d;line-height:1.85;margin-bottom:24px;max-width:640px}
     .bio-text strong{font-weight:600}
@@ -259,8 +263,10 @@
       .hero-photo-wrap{max-width:100%;border-radius:10px}
       .hero-sub{font-size:0.65rem;letter-spacing:0.25em;margin-top:16px}
 
-      .bio-section{grid-template-columns:1fr;gap:16px 0;padding:52px 0}
-      .bio-label{margin-bottom:24px}
+      .bio-section{grid-template-columns:1fr;grid-template-rows:auto;gap:16px 0;padding:52px 0}
+      .bio-label{grid-column:1;grid-row:auto;margin-bottom:24px;padding-top:0}
+      .bio-text{grid-column:1;grid-row:auto;margin-bottom:36px}
+      .bio-photo{grid-column:1;grid-row:auto;margin-top:0}
       .bio-text h2{font-size:1.9rem;margin-bottom:24px}
       .bio-text p{font-size:0.92rem;line-height:1.85}
 
@@ -337,9 +343,6 @@
       #contact-footer-bar>p::after{content:"Cambiago · Milano";display:block;margin-top:3px}
       #contact-footer-bar>div{display:none !important}
     }
-  
-    /* ALT BG TEST */
-    #studio{background:var(--cream)}
   </style>
   <script type="application/ld+json">
   {
@@ -508,17 +511,17 @@
 <section id="about"><hr class="section-rule" style="margin-top:64px;">
 <div class="wrapper"><div class="bio-section reveal">
   <div class="bio-label">
-        <span class="label" style="margin-bottom:20px;" data-i18n="about_label">Bio</span>
-        <div style="margin-top:24px;overflow:hidden;border-radius:6px;">
-          <img alt="Budapest Art Orchestra - Eros Ramazzotti" style="width:100%;height:auto;display:block;opacity:0.92;" src="images/idx-03.webp" srcset="images/idx-03-sm.webp 440w, images/idx-03.webp 780w" sizes="(max-width:900px) 100vw, 440px" width="780" height="585" loading="lazy" decoding="async">
-        </div>
-        <p style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#63625d;margin-top:10px;">Budapest Art Orchestra - Eros Ramazzotti</p>
+        <span class="label" data-i18n="about_label">Bio</span>
       </div>
   <div class="bio-text">
     <h2 id="t-bio-heading" data-i18n="bio_heading">Un suono fisico,<br>che vive e rimane</h2>
     <p class="t-it"><em>Jacopo Sam Federici</em> è un producer, composer e arrangiatore. Il suo lavoro attraversa scrittura, produzione, recording e orchestrazione, con un approccio che unisce visione musicale, precisione tecnica e rapidità operativa.<br><br>Lavora su progetti discografici, sessioni orchestrali e brief internazionali, costruendo ogni produzione intorno a un suono preciso, fisico e riconoscibile.<br><br>Insieme a <em>Iacopo Pinna</em> dà vita ai <em><a href="https://www.instagram.com/fetbastards/" target="_blank" style="color:inherit;border-bottom:1px solid var(--rule);text-decoration:none;">FET Bastards</a></em>, duo di producer attivo tra Italia e Stati Uniti.</p>
     <p class="t-en" style="display:none"><em>Jacopo Sam Federici</em> is a producer, composer and arranger. His work spans writing, production, recording and orchestration, with an approach that combines musical vision, technical precision and operational speed.<br><br>He works on record projects, orchestral sessions and international briefs, building every production around a precise, physical and recognisable sound.<br><br>Together with <em>Iacopo Pinna</em> he forms <em><a href="https://www.instagram.com/fetbastards/" target="_blank" style="color:inherit;border-bottom:1px solid var(--rule);text-decoration:none;">FET Bastards</a></em>, a producer duo active between Italy and the United States.</p>
     <a href="biography.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:36px;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity 0.2s;opacity:0.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" data-i18n="full_bio_link">Biografia completa &nbsp;→</a>
+  </div>
+  <div class="bio-photo">
+    <div><img alt="Budapest Art Orchestra - Eros Ramazzotti" style="width:100%;height:auto;display:block;opacity:0.92;" src="images/idx-03.webp" srcset="images/idx-03-sm.webp 440w, images/idx-03.webp 780w" sizes="(max-width:900px) 100vw, 440px" width="780" height="585" loading="lazy" decoding="async"></div>
+    <p>Budapest Art Orchestra - Eros Ramazzotti</p>
   </div>
 </div></div></section>
 
