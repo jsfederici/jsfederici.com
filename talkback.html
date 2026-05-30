@@ -9,133 +9,167 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
     :root{
       --paper:#f4f1eb; --ink:#0f0e0d; --rule:#d4cfc4; --dust:#63625d;
-      --cream:#ebe6dc; --serif:'Cormorant Garamond',serif; --sans:'Karla',sans-serif;
-      --max:1280px;
+      --cream:#ebe6dc; --read:#2c2b28;
+      --serif:'Cormorant Garamond',serif; --sans:'Karla',sans-serif;
+      --max:1180px;
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{font-family:var(--sans);font-weight:300;line-height:1.75;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
     a{color:inherit}
-    
+    img{display:block}
+
     header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:20px 56px;background:rgba(244,241,235,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
     .site-name{font-family:var(--serif);font-size:0.95rem;font-weight:300;letter-spacing:0.42em;text-decoration:none;color:var(--ink);text-transform:uppercase}
     nav{display:flex;gap:36px;list-style:none}
     nav a{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:opacity 0.2s;opacity:0.7}
     nav a:hover{opacity:1}
-    
+    .lang-switch{display:flex;gap:6px;align-items:center}
+
     .wrapper{max-width:var(--max);margin:0 auto;padding:0 56px}
     .label{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);display:block;opacity:0.6}
-    
-    /* Intro */
-    .intro{padding:120px 0 56px}
-    .intro .grid{display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start}
-    .intro h1{font-family:var(--serif);font-size:clamp(2.7rem,5.7vw,4.8rem);font-weight:300;font-style:italic;line-height:1.08;margin-bottom:32px}
-    .intro p{font-size:1.02rem;color:var(--dust);line-height:1.9;max-width:520px;margin-bottom:18px}
-    .intro .lab-tag{display:inline-block;font-size:0.62rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--dust);border:1px solid var(--rule);padding:6px 14px;margin-bottom:24px}
-    
-    .rule-soft{border:none;border-top:1px solid var(--rule);margin:24px 0 60px}
-    
-    /* Form */
-    .form-wrap{display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start;margin-bottom:80px}
-    .form-aside p{font-size:0.93rem;color:var(--dust);line-height:1.8;max-width:300px;margin-top:14px}
-    .form-aside .examples{margin-top:24px}
-    .form-aside .examples h4{font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);margin-bottom:14px;opacity:0.7;font-weight:500}
-    .form-aside .examples button{display:block;width:100%;text-align:left;background:transparent;border:none;border-bottom:1px dashed var(--rule);padding:10px 0;font-family:var(--sans);font-size:0.85rem;color:var(--dust);cursor:pointer;line-height:1.4;transition:color 0.2s}
-    .form-aside .examples button:hover{color:var(--ink)}
-    
+
+    .back-row{padding:28px 0 0}
+    .back-link{display:inline-block;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity 0.2s;opacity:0.7}
+    .back-link:hover{opacity:1}
+
+    /* ── HERO ── */
+    .hero{padding:64px 0 72px}
+    .hero .grid{display:grid;grid-template-columns:1.35fr 1fr;gap:0 64px;align-items:center}
+    .lab-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.34em;text-transform:uppercase;color:var(--dust);border:1px solid var(--rule);padding:7px 15px;margin-bottom:28px}
+    .hero h1{font-family:var(--serif);font-size:clamp(3.4rem,7vw,6rem);font-weight:300;font-style:italic;line-height:0.98;margin-bottom:28px;letter-spacing:-0.01em}
+    .hero p{font-size:1.05rem;color:var(--read);line-height:1.85;max-width:520px;margin-bottom:18px}
+    .hero p.muted{color:var(--dust);font-size:0.98rem}
+    .hero-photo{position:relative;background:var(--ink);border-radius:3px;overflow:hidden;aspect-ratio:4/5}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;opacity:0.95}
+    .hero-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,0.55));color:rgba(255,255,255,0.85);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase}
+
+    /* ── FORM ── */
+    .console{background:var(--cream);border-radius:4px;padding:48px;margin-bottom:64px}
+    .console-grid{display:grid;grid-template-columns:1fr 2fr;gap:0 56px;align-items:start}
+    .console-aside .label{margin-bottom:14px}
+    .console-aside p{font-size:0.92rem;color:var(--dust);line-height:1.8;max-width:280px;margin-bottom:28px}
+    .examples h4{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);margin-bottom:14px;opacity:0.65;font-weight:600}
+    .chips{display:flex;flex-direction:column;gap:8px}
+    .chip{text-align:left;background:rgba(244,241,235,0.6);border:1px solid var(--rule);border-radius:3px;padding:11px 14px;font-family:var(--sans);font-size:0.82rem;color:var(--read);cursor:pointer;line-height:1.35;transition:border-color 0.2s,background 0.2s,transform 0.1s}
+    .chip:hover{border-color:var(--ink);background:var(--paper)}
+    .chip:active{transform:translateY(1px)}
+
     .field-label{font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dust);display:block;margin-bottom:12px}
     textarea{
-      width:100%;min-height:160px;
-      font-family:var(--sans);font-weight:300;font-size:1rem;color:var(--ink);
-      background:transparent;border:none;border-bottom:1px solid var(--ink);
-      padding:14px 0;resize:vertical;line-height:1.7;
+      width:100%;min-height:180px;
+      font-family:var(--sans);font-weight:300;font-size:1.05rem;color:var(--ink);
+      background:var(--paper);border:1px solid var(--rule);border-radius:3px;
+      padding:18px;resize:vertical;line-height:1.7;
       outline:none;transition:border-color 0.2s
     }
-    textarea:focus{border-bottom-color:var(--ink)}
-    textarea::placeholder{color:var(--rule);font-style:italic}
-    .char-counter{font-size:0.7rem;color:var(--dust);text-align:right;margin-top:6px;opacity:0.6}
-    
-    .submit-row{display:flex;align-items:center;gap:24px;margin-top:36px}
+    textarea:focus{border-color:var(--ink)}
+    textarea::placeholder{color:#a8a299;font-style:italic}
+    .char-counter{font-size:0.7rem;color:var(--dust);text-align:right;margin-top:8px;opacity:0.6}
+
+    .submit-row{display:flex;align-items:center;gap:20px;margin-top:28px}
     button.ask{
-      font-family:var(--sans);font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;
-      background:var(--ink);color:var(--paper);border:none;
-      padding:18px 36px;cursor:pointer;
-      transition:opacity 0.2s,transform 0.15s
+      font-family:var(--sans);font-size:0.74rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;
+      background:var(--ink);color:var(--paper);border:none;border-radius:3px;
+      padding:18px 40px;cursor:pointer;
+      transition:opacity 0.2s,transform 0.12s
     }
     button.ask:hover:not(:disabled){opacity:0.85}
     button.ask:active:not(:disabled){transform:translateY(1px)}
     button.ask:disabled{opacity:0.4;cursor:not-allowed}
-    
-    /* Loading */
-    #loading{display:none;margin:48px 0;text-align:left}
+    .hint-kbd{font-size:0.68rem;color:var(--dust);opacity:0.6}
+
+    /* ── LOADING (EQ animation) ── */
+    #loading{display:none;margin:8px 0 64px;padding:0 4px}
     #loading.show{display:block}
-    .loading-text{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--dust);display:inline-flex;align-items:center;gap:14px}
-    .loading-dots{display:inline-flex;gap:5px}
-    .loading-dots span{width:6px;height:6px;background:var(--dust);border-radius:50%;animation:dot 1.4s ease-in-out infinite}
-    .loading-dots span:nth-child(2){animation-delay:0.2s}
-    .loading-dots span:nth-child(3){animation-delay:0.4s}
-    @keyframes dot{0%,80%,100%{opacity:0.3}40%{opacity:1}}
-    
-    /* Error */
-    #error{display:none;margin:48px 0;padding:20px 24px;border-left:3px solid #9a3b2f;background:rgba(154,59,47,0.05)}
+    .loading-row{display:flex;align-items:center;gap:18px}
+    .eq{display:inline-flex;gap:4px;align-items:flex-end;height:28px}
+    .eq span{width:4px;background:var(--ink);border-radius:1px;animation:eq 1s ease-in-out infinite}
+    .eq span:nth-child(1){animation-delay:0s}
+    .eq span:nth-child(2){animation-delay:.18s}
+    .eq span:nth-child(3){animation-delay:.36s}
+    .eq span:nth-child(4){animation-delay:.12s}
+    .eq span:nth-child(5){animation-delay:.42s}
+    .eq span:nth-child(6){animation-delay:.24s}
+    @keyframes eq{0%,100%{height:6px}50%{height:28px}}
+    .loading-text{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--dust)}
+
+    /* ── ERROR ── */
+    #error{display:none;margin:8px 0 64px;padding:20px 24px;border-left:3px solid #9a3b2f;background:rgba(154,59,47,0.05);border-radius:0 3px 3px 0}
     #error.show{display:block}
-    #error p{font-size:0.93rem;color:#9a3b2f}
-    
-    /* Output */
-    #output{display:none}
+    #error p{font-size:0.95rem;color:#9a3b2f}
+
+    /* ── OUTPUT ── */
+    #output{display:none;margin-bottom:24px}
     #output.show{display:block;animation:fade-in 0.5s ease-out}
-    @keyframes fade-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-    
-    .result-section{padding:48px 0;border-bottom:1px solid var(--rule)}
-    .result-section:last-child{border-bottom:none}
-    .result-section .grid{display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start}
-    .result-section h3{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);opacity:0.6;font-weight:500;margin-bottom:14px}
-    .result-section .content{font-family:var(--serif);font-size:1.15rem;line-height:1.6;color:var(--ink)}
-    .result-section .content.italic{font-style:italic}
-    .result-section .prodotto{font-family:var(--serif);font-weight:500;font-size:1.4rem;color:var(--ink);margin-bottom:10px;line-height:1.3}
-    .result-section .perche{font-family:var(--sans);font-size:1rem;line-height:1.8;color:var(--dust)}
-    
-    .restart-row{display:flex;justify-content:center;margin:60px 0 80px}
+    @keyframes fade-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Sintesi - highlighted lead */
+    .sintesi-block{padding:8px 0 40px;border-bottom:1px solid var(--rule);margin-bottom:8px}
+    .sintesi-block .label{margin-bottom:18px}
+    #r-sintesi{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.4;color:var(--ink);max-width:760px}
+
+    /* Dynamic blocks */
+    .result-section{padding:40px 0;border-bottom:1px solid var(--rule)}
+    .result-section .grid{display:grid;grid-template-columns:1fr 2.6fr;gap:0 56px;align-items:start}
+    .result-section h3{font-size:0.7rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--ink);opacity:0.55;font-weight:600;margin:0;padding-top:4px}
+    .result-section .perche{font-family:var(--sans);font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--read);margin:0}
+
+    /* Chicca - dark talkback panel */
+    #chicca-section{margin-top:48px;background:var(--ink);border-radius:4px;padding:44px 48px;position:relative;overflow:hidden}
+    #chicca-section::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:#c4452f}
+    #chicca-section .chicca-label{font-size:0.62rem;letter-spacing:0.32em;text-transform:uppercase;color:rgba(244,241,235,0.55);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+    #chicca-section .chicca-label::after{content:"● REC";font-size:0.55rem;letter-spacing:0.12em;color:#c4452f;opacity:0.9}
+    #r-chicca{font-family:var(--serif);font-style:italic;font-size:1.4rem;line-height:1.55;color:var(--paper);margin:0}
+
+    .restart-row{display:flex;justify-content:center;margin:56px 0 16px}
     button.restart{
-      font-family:var(--sans);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
-      background:transparent;color:var(--ink);border:1px solid var(--ink);
-      padding:14px 28px;cursor:pointer;transition:background 0.2s,color 0.2s
+      font-family:var(--sans);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;
+      background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:3px;
+      padding:15px 32px;cursor:pointer;transition:background 0.2s,color 0.2s
     }
     button.restart:hover{background:var(--ink);color:var(--paper)}
-    
-    /* Disclaimer */
-    .disclaimer{padding:24px 0 0;margin-top:60px;border-top:1px solid var(--rule)}
+
+    /* ── STUDIO STRIP ── */
+    .studio-strip{margin:0 0 64px;border-radius:4px;overflow:hidden;background:var(--ink);position:relative}
+    .studio-strip img{width:100%;height:300px;object-fit:cover;object-position:center 45%;opacity:0.92}
+    .studio-strip figcaption{position:absolute;left:0;bottom:0;padding:18px 24px;background:linear-gradient(transparent,rgba(0,0,0,0.5));color:rgba(255,255,255,0.8);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase}
+
+    /* ── DISCLAIMER ── */
+    .disclaimer{padding:28px 0 0;margin-top:48px;border-top:1px solid var(--rule)}
     .disclaimer p{font-size:0.72rem;color:var(--dust);line-height:1.7;max-width:680px;opacity:0.75;font-style:italic}
-    
-    footer{padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:60px;border-top:1px solid var(--rule)}
+
+    footer{padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:56px;border-top:1px solid var(--rule)}
     footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust)}
-    .footer-link{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);text-decoration:none;transition:color 0.2s}
-    .footer-link:hover{color:var(--ink)}
-    
-    /* Language switch */
-    .lang-switch{display:flex;gap:6px;align-items:center}
-    
-    /* Back link */
-    .back-row{padding:24px 0 0}
-    
-    /* Mobile */
+
+    /* ── MOBILE ── */
     @media(max-width:900px){
       header{padding:14px 20px;flex-direction:column;gap:14px;align-items:flex-start}
       nav{gap:18px}
       .wrapper{padding:0 20px}
-      .intro{padding:60px 0 40px}
-      .intro .grid,.form-wrap,.result-section .grid{grid-template-columns:1fr;gap:32px}
-      .intro h1{font-size:2.2rem}
-      .intro p{font-size:0.95rem;max-width:none}
-      .form-aside p{max-width:none}
-      .result-section{padding:32px 0}
-      .result-section h3{margin-bottom:10px}
+      .hero{padding:36px 0 48px}
+      .hero .grid{grid-template-columns:1fr;gap:36px}
+      .hero h1{font-size:3rem}
+      .hero p{font-size:1rem;max-width:none}
+      .hero-photo{aspect-ratio:16/11;order:-1}
+      .console{padding:28px 22px}
+      .console-grid{grid-template-columns:1fr;gap:28px}
+      .console-aside p{max-width:none}
+      .chips{flex-direction:column}
       .submit-row{flex-direction:column;align-items:stretch;gap:14px}
       button.ask{width:100%}
+      .hint-kbd{display:none}
+      .sintesi-block{padding:8px 0 28px}
+      .result-section{padding:28px 0}
+      .result-section .grid{grid-template-columns:1fr;gap:12px}
+      .result-section h3{padding-top:0}
+      #chicca-section{padding:32px 26px}
+      #r-chicca{font-size:1.2rem}
+      .studio-strip img{height:200px}
       footer{padding:20px;flex-direction:column;align-items:center;text-align:center}
     }
 </style>
@@ -171,64 +205,68 @@
 <div class="wrapper">
 
   <div class="back-row">
-    <a href="index.html" style="display:inline-block;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity 0.2s;opacity:0.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><span class="t-it">← Indietro</span><span class="t-en" style="display:none">← Back</span></a>
+    <a href="index.html" class="back-link"><span class="t-it">← Indietro</span><span class="t-en" style="display:none">← Back</span></a>
   </div>
 
-  <!-- INTRO -->
-  <section class="intro">
+  <!-- HERO -->
+  <section class="hero">
     <div class="grid">
       <div>
         <span class="lab-tag" data-i18n="lab_tag">Officina · Lab</span>
-        <span class="label" data-i18n="page_label">Strumento AI sperimentale</span>
-      </div>
-      <div>
         <h1 data-i18n="page_heading">Talkback.</h1>
-        <p class="t-it">Chiedimi qualsiasi cosa sulla produzione di alto livello - una microfonazione, un trick di mix o di master, una scelta di gear, un ampli, un pedale, una catena per registrare uno strumento in modo creativo, una scorciatoia in Pro Tools, una scelta di arrangiamento. Ti rispondo da producer a producer.</p>
-        <p class="t-en" style="display:none">Ask me anything about high-level production - a miking technique, a mix or master trick, a gear choice, an amp, a pedal, a creative way to track an instrument, a Pro Tools shortcut, an arrangement decision. I'll answer producer to producer.</p>
-        <p class="t-it">Niente marketing, niente liste-recensione, niente vangeli copiati dai corsi. Il principio sotto, non la ricetta da imitare.</p>
-        <p class="t-en" style="display:none">No marketing, no listicles, no gospel copied from courses. The principle underneath, not the recipe to imitate.</p>
+        <p class="t-it">Chiedimi qualsiasi cosa sulla produzione di alto livello - una microfonazione, un trick di mix o di master, una scelta di gear, un ampli, un pedale, una catena per registrare uno strumento in modo creativo, una scorciatoia in Pro Tools, una scelta di arrangiamento.</p>
+        <p class="t-en" style="display:none">Ask me anything about high-level production - a miking technique, a mix or master trick, a gear choice, an amp, a pedal, a creative way to track an instrument, a Pro Tools shortcut, an arrangement decision.</p>
+        <p class="muted t-it">Niente marketing, niente liste-recensione, niente vangeli copiati dai corsi. Il principio sotto, non la ricetta da imitare. Producer a producer.</p>
+        <p class="muted t-en" style="display:none">No marketing, no listicles, no gospel copied from courses. The principle underneath, not the recipe to imitate. Producer to producer.</p>
       </div>
+      <figure class="hero-photo">
+        <img src="images/idx-06.webp" srcset="images/idx-06-sm.webp 720w, images/idx-06.webp 848w" sizes="(max-width:900px) 100vw, 420px" alt="Volta Studio - control room" width="848" height="1060" loading="eager" decoding="async" onerror="this.closest('.hero-photo').style.display='none'">
+        <figcaption>Volta Studio · La regia</figcaption>
+      </figure>
     </div>
   </section>
 
-  <hr class="rule-soft">
-
-  <!-- FORM -->
-  <section class="form-wrap">
-    <div class="form-aside">
-      <span class="label" data-i18n="form_aside_label">La domanda</span>
-      <p class="t-it">Sii specifico se puoi: stile musicale, contesto, cosa hai a disposizione, dove vuoi arrivare. Più contesto, più mirata la risposta.</p>
-      <p class="t-en" style="display:none">Be specific if you can: musical style, context, what you have to work with, where you want to land. More context, sharper answer.</p>
-      <div class="examples">
-        <h4 data-i18n="examples_label">Esempi</h4>
-        <button type="button" class="example-btn" data-q-it="Come registro una chitarra acustica intimista con un ribbon, in modo creativo?" data-q-en="How do I record an intimate acoustic guitar with a ribbon, creatively?">Chitarra acustica con ribbon</button>
-        <button type="button" class="example-btn" data-q-it="Spiegami il principio del rear bus di Andrew Scheps e quando ha senso usarlo" data-q-en="Explain Andrew Scheps' rear bus principle and when it makes sense">Il rear bus di Scheps</button>
-        <button type="button" class="example-btn" data-q-it="Come imposto il gain staging in Pro Tools per un mix pulito con plugin analog-modeled?" data-q-en="How do I set gain staging in Pro Tools for a clean mix with analog-modeled plugins?">Gain staging in Pro Tools</button>
-        <button type="button" class="example-btn" data-q-it="Voglio il suono di basso Motown di James Jamerson. Come ci arrivo tra strumento, tecnica e mix?" data-q-en="I want James Jamerson's Motown bass sound. How do I get there - instrument, technique, mix?">Il basso Motown di Jamerson</button>
-        <button type="button" class="example-btn" data-q-it="Trick creativi per registrare una chitarra elettrica con un ampli vintage piccolo" data-q-en="Creative tricks for recording electric guitar with a small vintage amp">Chitarra elettrica, ampli vintage</button>
+  <!-- CONSOLE / FORM -->
+  <section class="console">
+    <div class="console-grid">
+      <div class="console-aside">
+        <span class="label" data-i18n="form_aside_label">La domanda</span>
+        <p class="t-it">Sii specifico se puoi: stile musicale, contesto, cosa hai a disposizione, dove vuoi arrivare. Più contesto, più mirata la risposta.</p>
+        <p class="t-en" style="display:none">Be specific if you can: musical style, context, what you have to work with, where you want to land. More context, sharper answer.</p>
+        <div class="examples">
+          <h4 data-i18n="examples_label">Esempi</h4>
+          <div class="chips">
+            <button type="button" class="example-btn chip" data-q-it="Come registro una chitarra acustica intimista con un ribbon, in modo creativo?" data-q-en="How do I record an intimate acoustic guitar with a ribbon, creatively?">Chitarra acustica con ribbon</button>
+            <button type="button" class="example-btn chip" data-q-it="Spiegami il principio del rear bus di Andrew Scheps e quando ha senso usarlo" data-q-en="Explain Andrew Scheps' rear bus principle and when it makes sense">Il rear bus di Scheps</button>
+            <button type="button" class="example-btn chip" data-q-it="Come imposto il gain staging in Pro Tools per un mix pulito con plugin analog-modeled?" data-q-en="How do I set gain staging in Pro Tools for a clean mix with analog-modeled plugins?">Gain staging in Pro Tools</button>
+            <button type="button" class="example-btn chip" data-q-it="Voglio il suono di basso Motown di James Jamerson. Come ci arrivo tra strumento, tecnica e mix?" data-q-en="I want James Jamerson's Motown bass sound. How do I get there - instrument, technique, mix?">Il basso Motown di Jamerson</button>
+            <button type="button" class="example-btn chip" data-q-it="Trick creativi per registrare una chitarra elettrica con un ampli vintage piccolo" data-q-en="Creative tricks for recording electric guitar with a small vintage amp">Chitarra elettrica, ampli vintage</button>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="form-main">
-      <label class="field-label" for="question" data-i18n="question_label">Cosa stai cercando</label>
-      <textarea id="question" maxlength="1500" placeholder="Es. 'Sto registrando una chitarra elettrica per un brano alt-rock. Ho un Fender Champ vintage e un Royer R-121. Come la riprendo e con che trick la rendo interessante?'"></textarea>
-      <div class="char-counter"><span id="counter">0</span> / 1500</div>
-      
-      <!-- Honeypot for bots -->
-      <input type="text" name="bot-field" id="bot-field" style="display:none" tabindex="-1" autocomplete="off">
-      
-      <div class="submit-row">
-        <button type="button" class="ask" id="ask-btn" data-i18n="ask_btn">CHIEDI →</button>
+      <div class="console-main">
+        <label class="field-label" for="question" data-i18n="question_label">Cosa stai cercando</label>
+        <textarea id="question" maxlength="1500" placeholder="Es. 'Sto registrando una chitarra elettrica per un brano alt-rock. Ho un Fender Champ vintage e un Royer R-121. Come la riprendo e con che trick la rendo interessante?'"></textarea>
+        <div class="char-counter"><span id="counter">0</span> / 1500</div>
+
+        <!-- Honeypot for bots -->
+        <input type="text" name="bot-field" id="bot-field" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="submit-row">
+          <button type="button" class="ask" id="ask-btn" data-i18n="ask_btn">CHIEDI →</button>
+          <span class="hint-kbd t-it">o premi ⌘ + Invio</span>
+          <span class="hint-kbd t-en" style="display:none">or press ⌘ + Enter</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- LOADING -->
   <div id="loading">
-    <div class="loading-text">
-      <span class="t-it">Un attimo</span>
-      <span class="t-en" style="display:none">One moment</span>
-      <span class="loading-dots"><span></span><span></span><span></span></span>
+    <div class="loading-row">
+      <span class="eq"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+      <span class="loading-text"><span class="t-it">Dalla regia, un attimo…</span><span class="t-en" style="display:none">From the control room, one moment…</span></span>
     </div>
   </div>
 
@@ -240,35 +278,29 @@
   <!-- OUTPUT -->
   <div id="output">
 
-    <div class="result-section">
-      <div class="grid">
-        <div>
-          <h3 data-i18n="r_sintesi">In sintesi</h3>
-        </div>
-        <div>
-          <p class="content italic" id="r-sintesi"></p>
-        </div>
-      </div>
+    <div class="sintesi-block">
+      <span class="label" data-i18n="r_sintesi">In sintesi</span>
+      <p id="r-sintesi"></p>
     </div>
 
     <!-- Dynamic blocks injected here -->
     <div id="r-blocchi"></div>
 
-    <div class="result-section" id="chicca-section">
-      <div class="grid">
-        <div>
-          <h3 data-i18n="r_chicca">Dalla regia</h3>
-        </div>
-        <div>
-          <p class="perche" id="r-chicca"></p>
-        </div>
-      </div>
+    <div id="chicca-section">
+      <div class="chicca-label" data-i18n="r_chicca">Dalla regia</div>
+      <p id="r-chicca"></p>
     </div>
 
     <div class="restart-row">
       <button type="button" class="restart" id="restart-btn" data-i18n="restart_btn">FAI UN'ALTRA DOMANDA</button>
     </div>
   </div>
+
+  <!-- STUDIO STRIP -->
+  <figure class="studio-strip">
+    <img src="images/idx-09.webp" srcset="images/idx-09-sm.webp 360w, images/idx-09.webp 560w" sizes="100vw" alt="Rack - Apollo, Cloudlifter, API" width="560" height="700" loading="lazy" decoding="async" onerror="this.closest('.studio-strip').style.display='none'">
+    <figcaption>Volta Studio · Il rack</figcaption>
+  </figure>
 
   <div class="disclaimer">
     <p class="t-it">Tool sperimentale. Le risposte sono generate da un modello AI istruito sulla voce di Jacopo, non sono consulenza professionale né raccomandazioni d'acquisto. Verifica sempre prezzi, disponibilità e specifiche prima di comprare.</p>
@@ -387,12 +419,12 @@ async function askBanco(){
     showError(getLang() === 'it' ? 'Spiegami meglio la domanda (minimo 5 caratteri).' : 'Tell me more (at least 5 characters).');
     return;
   }
-  
+
   hideError();
   hideOutput();
   showLoading();
   askBtn.disabled = true;
-  
+
   try{
     const res = await fetch('/.netlify/functions/talkback', {
       method: 'POST',
@@ -402,13 +434,13 @@ async function askBanco(){
         'bot-field': document.getElementById('bot-field').value
       })
     });
-    
+
     const data = await res.json();
-    
+
     if(!res.ok){
       throw new Error(data.error || 'Errore sconosciuto');
     }
-    
+
     renderOutput(data);
   } catch(e){
     showError(e.message || (getLang() === 'it' ? 'Errore di rete. Riprova.' : 'Network error. Try again.'));
@@ -475,7 +507,7 @@ document.getElementById('restart-btn').addEventListener('click', () => {
   hideOutput();
   hideError();
   ta.focus();
-  document.querySelector('.intro').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelector('.hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 </script>
 

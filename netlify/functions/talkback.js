@@ -171,7 +171,8 @@ exports.handler = async (event) => {
         responseMimeType: 'application/json',
         responseSchema: RESPONSE_SCHEMA,
         temperature: 0.75,
-        maxOutputTokens: 2500
+        maxOutputTokens: 2000,
+        thinkingConfig: { thinkingBudget: 0 }
       },
       safetySettings: [
         { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
