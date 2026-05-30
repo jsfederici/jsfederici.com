@@ -170,13 +170,15 @@
 </head>
 <body>
 
-<!-- ===== DEV GATE - tool in sviluppo. Per rendere pubblico il tool: cancella questo blocco E il blocco JS del gate (in fondo, ben segnalato) ===== -->
-<div id="dev-gate" style="position:fixed;inset:0;z-index:99999;background:#0f0e0d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center;">
-  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.6rem,4vw,2.4rem);color:#f4f1eb;margin:0;">Officina chiusa</p>
-  <p style="font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:#63625d;margin:0;">Strumento in sviluppo</p>
-  <input id="gate-pw" type="password" placeholder="Password" autocomplete="off" style="margin-top:12px;font-family:'Karla',sans-serif;font-size:1rem;background:transparent;border:none;border-bottom:1px solid #63625d;color:#f4f1eb;padding:10px 4px;text-align:center;outline:none;letter-spacing:0.1em;width:220px;">
-  <button id="gate-btn" style="font-family:'Karla',sans-serif;font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;background:#f4f1eb;color:#0f0e0d;border:none;padding:14px 32px;cursor:pointer;">Entra</button>
-  <p id="gate-err" style="display:none;font-size:0.8rem;color:#cc4433;margin:0;">Password errata</p>
+<!-- ===== DEV GATE - sezione in sviluppo. Per rendere pubblico il tool: cancella questo blocco E il blocco JS del gate (in fondo, ben segnalato) ===== -->
+<div id="dev-gate" style="position:fixed;inset:0;z-index:99999;background:#0f0e0d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center;">
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.6rem,4vw,2.4rem);color:#f4f1eb;margin:0;">Sezione in sviluppo.</p>
+  <p style="font-size:0.92rem;color:#a8a59e;margin:0;max-width:440px;line-height:1.65;">Ci scusiamo per il disservizio: questa sezione è ancora in fase di programmazione e di sviluppo.</p>
+  <p style="font-size:0.72rem;color:#63625d;margin:0 0 4px;max-width:440px;line-height:1.5;font-style:italic;">Apologies for the inconvenience - this section is still being developed.</p>
+  <input id="gate-user" type="text" placeholder="Utente" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" style="margin-top:14px;font-family:'Karla',sans-serif;font-size:1rem;background:transparent;border:none;border-bottom:1px solid #63625d;color:#f4f1eb;padding:10px 4px;text-align:center;outline:none;letter-spacing:0.1em;width:240px;">
+  <input id="gate-pw" type="password" placeholder="Password" autocomplete="off" style="font-family:'Karla',sans-serif;font-size:1rem;background:transparent;border:none;border-bottom:1px solid #63625d;color:#f4f1eb;padding:10px 4px;text-align:center;outline:none;letter-spacing:0.1em;width:240px;">
+  <button id="gate-btn" style="margin-top:8px;font-family:'Karla',sans-serif;font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;background:#f4f1eb;color:#0f0e0d;border:none;padding:14px 32px;cursor:pointer;">Entra</button>
+  <p id="gate-err" style="display:none;font-size:0.8rem;color:#cc4433;margin:0;">Credenziali errate</p>
 </div>
 <!-- ===== FINE DEV GATE ===== -->
 
@@ -298,31 +300,40 @@
 </footer>
 
 <script>
-// ===== DEV GATE (rimuovere insieme al blocco HTML quando il tool diventa pubblico) =====
-const DEV_PASSWORD = "volta2026"; // <-- CAMBIA questa password con quella che vuoi
+// ===== DEV GATE (rimuovere insieme al blocco HTML quando la sezione diventa pubblica) =====
+const DEV_CREDS = [
+  { user: "jsfederici", pw: "Jackfray12!" },
+  { user: "admin",      pw: "voltalab2026" }
+];
 (function(){
   const gate = document.getElementById('dev-gate');
-  if(sessionStorage.getItem('banco-dev-unlocked') === 'yes'){
+  if(sessionStorage.getItem('lab-dev-unlocked') === 'yes'){
     gate.style.display = 'none';
     return;
   }
   document.body.style.overflow = 'hidden';
-  const input = document.getElementById('gate-pw');
+  const userIn = document.getElementById('gate-user');
+  const pwIn = document.getElementById('gate-pw');
   const btn = document.getElementById('gate-btn');
   const err = document.getElementById('gate-err');
   function unlock(){
-    if(input.value === DEV_PASSWORD){
-      sessionStorage.setItem('banco-dev-unlocked','yes');
+    const u = userIn.value.trim();
+    const p = pwIn.value;
+    const ok = DEV_CREDS.some(c => c.user === u && c.pw === p);
+    if(ok){
+      sessionStorage.setItem('lab-dev-unlocked','yes');
       gate.style.display = 'none';
       document.body.style.overflow = '';
     } else {
       err.style.display = 'block';
-      input.value = '';
+      pwIn.value = '';
+      pwIn.focus();
     }
   }
   btn.addEventListener('click', unlock);
-  input.addEventListener('keydown', e => { if(e.key === 'Enter') unlock(); });
-  input.focus();
+  userIn.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); pwIn.focus(); } });
+  pwIn.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); unlock(); } });
+  userIn.focus();
 })();
 // ===== FINE DEV GATE =====
 
