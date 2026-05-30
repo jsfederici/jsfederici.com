@@ -142,6 +142,7 @@
 
     /* ── MOBILE ── */
     @media(max-width:900px){
+      .hamburger{display:flex;align-items:center;justify-content:center} .lang-switch{display:none !important}
       header{padding:14px 20px;flex-direction:column;gap:14px;align-items:flex-start}
       nav{gap:18px}
       .wrapper{padding:0 20px}
@@ -166,7 +167,24 @@
       #r-chicca{font-size:1.2rem}
       footer{padding:20px;flex-direction:column;align-items:center;text-align:center}
     }
-</style>
+
+    /* ── HAMBURGER & MOBILE MENU ── */
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;width:38px;height:38px;position:relative;z-index:250}
+    .hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);margin:5px auto;transition:transform 0.3s,opacity 0.3s}
+    .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-menu{position:fixed;inset:0;background:rgba(244,241,235,0.985);backdrop-filter:blur(14px);z-index:220;display:none;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:48px 24px}
+    .mobile-menu.open{display:flex}
+    .mobile-nav{display:flex;flex-direction:column;gap:24px;align-items:center;text-align:center}
+    .mobile-nav a{font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--ink);text-decoration:none;font-weight:300;letter-spacing:-0.005em}
+    .mobile-nav a:hover,.mobile-nav a:focus{opacity:0.65}
+    .mobile-lang{display:flex;gap:14px;align-items:center;margin-top:24px;font-family:var(--sans)}
+    .mobile-lang button{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink);padding:6px 4px;opacity:0.55}
+    .mobile-lang button.active{opacity:1;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:4px}
+    .mobile-lang span{color:var(--rule);font-size:0.78rem}
+
+  </style>
 </head>
 <body>
 
@@ -197,8 +215,26 @@
       <span style="color:var(--rule);font-size:0.7rem;">·</span>
       <button id="btn-en" onclick="setLang('en')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:#63625d;font-weight:400;padding:0;">EN</button>
     </div>
+    <button class="hamburger" aria-label="Apri menù" aria-expanded="false" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
+<!-- ===== MOBILE MENU (drawer) ===== -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav class="mobile-nav">
+      <a href="index.html#about" data-i18n="nav_bio">BIO</a>
+      <a href="index.html#studio" data-i18n="nav_studio">VOLTA STUDIO</a>
+      <a href="index.html#works" data-i18n="nav_works">LAVORI</a>
+      <a href="talkback.html" data-i18n="nav_lab">LAB</a>
+      <a href="contatti.html" data-i18n="nav_contact">CONTATTI</a>
+  </nav>
+  <div class="mobile-lang">
+    <button onclick="mobileLangClick('it')" id="m-btn-it">IT</button>
+    <span>·</span>
+    <button onclick="mobileLangClick('en')" id="m-btn-en">EN</button>
+  </div>
+</div>
+<!-- ===== FINE MOBILE MENU ===== -->
+
 
 <main>
 <div class="wrapper">
@@ -581,5 +617,39 @@ document.getElementById('restart-btn').addEventListener('click', () => {
 
 </script>
 
+<script>
+function toggleMobileMenu(){
+  const h=document.querySelector('.hamburger');
+  const m=document.getElementById('mobile-menu');
+  if(!h||!m) return;
+  const open=!m.classList.contains('open');
+  h.classList.toggle('open',open);
+  m.classList.toggle('open',open);
+  h.setAttribute('aria-expanded',open?'true':'false');
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMobileMenu(){
+  const h=document.querySelector('.hamburger');
+  const m=document.getElementById('mobile-menu');
+  if(!h||!m) return;
+  h.classList.remove('open');
+  m.classList.remove('open');
+  h.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}
+function mobileLangClick(lang){
+  if(typeof setLang==='function') setLang(lang);
+  document.querySelectorAll('.mobile-lang button').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('m-btn-'+lang);
+  if(btn) btn.classList.add('active');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const m=document.getElementById('mobile-menu');
+  if(m) m.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',closeMobileMenu));
+  const lang=document.documentElement.lang||'it';
+  const btn=document.getElementById('m-btn-'+lang);
+  if(btn) btn.classList.add('active');
+});
+</script>
 </body>
 </html>

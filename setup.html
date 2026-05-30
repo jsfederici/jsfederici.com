@@ -209,6 +209,7 @@
     .reveal.visible{opacity:1;transform:translateY(0)}
 
     @media(max-width:900px){
+      .hamburger{display:flex;align-items:center;justify-content:center} .lang-switch{display:none !important}
       [style*="margin:3px -56px"]{margin:3px -20px 0 !important}
       .hero-photo-wrap{width:calc(100% + 40px) !important;margin:0 -20px !important;max-width:none !important;border-radius:10px !important}
       .hero-photo-wrap img{max-height:calc(100vh - 120px) !important}
@@ -338,6 +339,23 @@
     }
     /* Pagine secondarie: reveal sempre visibile, nessuna animazione scroll */
     .reveal, .reveal.visible { opacity:1 !important; transform:none !important; transition:none !important; }
+  
+    /* ── HAMBURGER & MOBILE MENU ── */
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;width:38px;height:38px;position:relative;z-index:250}
+    .hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);margin:5px auto;transition:transform 0.3s,opacity 0.3s}
+    .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-menu{position:fixed;inset:0;background:rgba(244,241,235,0.985);backdrop-filter:blur(14px);z-index:220;display:none;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:48px 24px}
+    .mobile-menu.open{display:flex}
+    .mobile-nav{display:flex;flex-direction:column;gap:24px;align-items:center;text-align:center}
+    .mobile-nav a{font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--ink);text-decoration:none;font-weight:300;letter-spacing:-0.005em}
+    .mobile-nav a:hover,.mobile-nav a:focus{opacity:0.65}
+    .mobile-lang{display:flex;gap:14px;align-items:center;margin-top:24px;font-family:var(--sans)}
+    .mobile-lang button{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink);padding:6px 4px;opacity:0.55}
+    .mobile-lang button.active{opacity:1;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:4px}
+    .mobile-lang span{color:var(--rule);font-size:0.78rem}
+
   </style>
 
   <script type="application/ld+json">
@@ -414,8 +432,29 @@
       <span style="color:var(--rule);font-size:0.7rem;">·</span>
       <button onclick="setLang('en')" id="btn-en" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:#63625d;font-weight:400;padding:0;">EN</button>
     </div>
+    <button class="hamburger" aria-label="Apri menù" aria-expanded="false" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
+<!-- ===== MOBILE MENU (drawer) ===== -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav class="mobile-nav">
+      <a href="index.html#about" class="t-it">Bio</a>
+      <a href="index.html#about" class="t-en" style="display:none">About</a>
+      <a href="index.html#studio">Volta Studio</a>
+      <a href="index.html#works" class="t-it">Lavori</a>
+      <a href="index.html#works" class="t-en" style="display:none">Works</a>
+      <a href="talkback.html">Lab</a>
+      <a href="index.html#contact" class="t-it">Contatti</a>
+      <a href="index.html#contact" class="t-en" style="display:none">Contact</a>
+  </nav>
+  <div class="mobile-lang">
+    <button onclick="mobileLangClick('it')" id="m-btn-it">IT</button>
+    <span>·</span>
+    <button onclick="mobileLangClick('en')" id="m-btn-en">EN</button>
+  </div>
+</div>
+<!-- ===== FINE MOBILE MENU ===== -->
+
 
 <main>
 <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Setup e strumentazione di Volta Studio - Studio di Registrazione e Produzione Musicale a Milano</h1>
@@ -579,6 +618,40 @@ document.querySelectorAll('.gear-col h4').forEach(function(h4) {
     if(window.innerWidth > 900) return;
     h4.parentElement.classList.toggle('open');
   });
+});
+</script>
+<script>
+function toggleMobileMenu(){
+  const h=document.querySelector('.hamburger');
+  const m=document.getElementById('mobile-menu');
+  if(!h||!m) return;
+  const open=!m.classList.contains('open');
+  h.classList.toggle('open',open);
+  m.classList.toggle('open',open);
+  h.setAttribute('aria-expanded',open?'true':'false');
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMobileMenu(){
+  const h=document.querySelector('.hamburger');
+  const m=document.getElementById('mobile-menu');
+  if(!h||!m) return;
+  h.classList.remove('open');
+  m.classList.remove('open');
+  h.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}
+function mobileLangClick(lang){
+  if(typeof setLang==='function') setLang(lang);
+  document.querySelectorAll('.mobile-lang button').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('m-btn-'+lang);
+  if(btn) btn.classList.add('active');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const m=document.getElementById('mobile-menu');
+  if(m) m.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',closeMobileMenu));
+  const lang=document.documentElement.lang||'it';
+  const btn=document.getElementById('m-btn-'+lang);
+  if(btn) btn.classList.add('active');
 });
 </script>
 </body>
