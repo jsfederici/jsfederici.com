@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Talkback - Jacopo Sam Federici</title>
+<meta name="description" content="Talkback - consulente AI di produzione musicale costruito sulla voce di Jacopo Sam Federici. Strumento sperimentale.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+    :root{
+      --paper:#f4f1eb; --ink:#0f0e0d; --rule:#d4cfc4; --dust:#63625d;
+      --cream:#ebe6dc; --serif:'Cormorant Garamond',serif; --sans:'Karla',sans-serif;
+      --max:1280px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);font-weight:300;line-height:1.75;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    
+    header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:20px 56px;background:rgba(244,241,235,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .site-name{font-family:var(--serif);font-size:0.95rem;font-weight:300;letter-spacing:0.42em;text-decoration:none;color:var(--ink);text-transform:uppercase}
+    nav{display:flex;gap:36px;list-style:none}
+    nav a{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:opacity 0.2s;opacity:0.7}
+    nav a:hover{opacity:1}
+    
+    .wrapper{max-width:var(--max);margin:0 auto;padding:0 56px}
+    .label{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);display:block;opacity:0.6}
+    
+    /* Intro */
+    .intro{padding:120px 0 56px}
+    .intro .grid{display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start}
+    .intro h1{font-family:var(--serif);font-size:clamp(2.7rem,5.7vw,4.8rem);font-weight:300;font-style:italic;line-height:1.08;margin-bottom:32px}
+    .intro p{font-size:1.02rem;color:var(--dust);line-height:1.9;max-width:520px;margin-bottom:18px}
+    .intro .lab-tag{display:inline-block;font-size:0.62rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--dust);border:1px solid var(--rule);padding:6px 14px;margin-bottom:24px}
+    
+    .rule-soft{border:none;border-top:1px solid var(--rule);margin:24px 0 60px}
+    
+    /* Form */
+    .form-wrap{display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start;margin-bottom:80px}
+    .form-aside p{font-size:0.93rem;color:var(--dust);line-height:1.8;max-width:300px;margin-top:14px}
+    .form-aside .examples{margin-top:24px}
+    .form-aside .examples h4{font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);margin-bottom:14px;opacity:0.7;font-weight:500}
+    .form-aside .examples button{display:block;width:100%;text-align:left;background:transparent;border:none;border-bottom:1px dashed var(--rule);padding:10px 0;font-family:var(--sans);font-size:0.85rem;color:var(--dust);cursor:pointer;line-height:1.4;transition:color 0.2s}
+    .form-aside .examples button:hover{color:var(--ink)}
+    
+    .field-label{font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dust);display:block;margin-bottom:12px}
+    textarea{
+      width:100%;min-height:160px;
+      font-family:var(--sans);font-weight:300;font-size:1rem;color:var(--ink);
+      background:transparent;border:none;border-bottom:1px solid var(--ink);
+      padding:14px 0;resize:vertical;line-height:1.7;
+      outline:none;transition:border-color 0.2s
+    }
+    textarea:focus{border-bottom-color:var(--ink)}
+    textarea::placeholder{color:var(--rule);font-style:italic}
+    .char-counter{font-size:0.7rem;color:var(--dust);text-align:right;margin-top:6px;opacity:0.6}
+    
+    .submit-row{display:flex;align-items:center;gap:24px;margin-top:36px}
+    button.ask{
+      font-family:var(--sans);font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;
+      background:var(--ink);color:var(--paper);border:none;
+      padding:18px 36px;cursor:pointer;
+      transition:opacity 0.2s,transform 0.15s
+    }
+    button.ask:hover:not(:disabled){opacity:0.85}
+    button.ask:active:not(:disabled){transform:translateY(1px)}
+    button.ask:disabled{opacity:0.4;cursor:not-allowed}
+    
+    /* Loading */
+    #loading{display:none;margin:48px 0;text-align:left}
+    #loading.show{display:block}
+    .loading-text{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--dust);display:inline-flex;align-items:center;gap:14px}
+    .loading-dots{display:inline-flex;gap:5px}
+    .loading-dots span{width:6px;height:6px;background:var(--dust);border-radius:50%;animation:dot 1.4s ease-in-out infinite}
+    .loading-dots span:nth-child(2){animation-delay:0.2s}
+    .loading-dots span:nth-child(3){animation-delay:0.4s}
+    @keyframes dot{0%,80%,100%{opacity:0.3}40%{opacity:1}}
+    
+    /* Error */
+    #error{display:none;margin:48px 0;padding:20px 24px;border-left:3px solid #9a3b2f;background:rgba(154,59,47,0.05)}
+    #error.show{display:block}
+    #error p{font-size:0.93rem;color:#9a3b2f}
+    
+    /* Output */
+    #output{display:none}
+    #output.show{display:block;animation:fade-in 0.5s ease-out}
+    @keyframes fade-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    
+    .result-section{padding:48px 0;border-bottom:1px solid var(--rule)}
+    .result-section:last-child{border-bottom:none}
+    .result-section .grid{display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start}
+    .result-section h3{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);opacity:0.6;font-weight:500;margin-bottom:14px}
+    .result-section .content{font-family:var(--serif);font-size:1.15rem;line-height:1.6;color:var(--ink)}
+    .result-section .content.italic{font-style:italic}
+    .result-section .prodotto{font-family:var(--serif);font-weight:500;font-size:1.4rem;color:var(--ink);margin-bottom:10px;line-height:1.3}
+    .result-section .perche{font-family:var(--sans);font-size:1rem;line-height:1.8;color:var(--dust)}
+    
+    .restart-row{display:flex;justify-content:center;margin:60px 0 80px}
+    button.restart{
+      font-family:var(--sans);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+      background:transparent;color:var(--ink);border:1px solid var(--ink);
+      padding:14px 28px;cursor:pointer;transition:background 0.2s,color 0.2s
+    }
+    button.restart:hover{background:var(--ink);color:var(--paper)}
+    
+    /* Disclaimer */
+    .disclaimer{padding:24px 0 0;margin-top:60px;border-top:1px solid var(--rule)}
+    .disclaimer p{font-size:0.72rem;color:var(--dust);line-height:1.7;max-width:680px;opacity:0.75;font-style:italic}
+    
+    footer{padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:60px;border-top:1px solid var(--rule)}
+    footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust)}
+    .footer-link{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);text-decoration:none;transition:color 0.2s}
+    .footer-link:hover{color:var(--ink)}
+    
+    /* Language switch */
+    .lang-switch{display:flex;gap:6px;align-items:center}
+    
+    /* Back link */
+    .back-row{padding:24px 0 0}
+    
+    /* Mobile */
+    @media(max-width:900px){
+      header{padding:14px 20px;flex-direction:column;gap:14px;align-items:flex-start}
+      nav{gap:18px}
+      .wrapper{padding:0 20px}
+      .intro{padding:60px 0 40px}
+      .intro .grid,.form-wrap,.result-section .grid{grid-template-columns:1fr;gap:32px}
+      .intro h1{font-size:2.2rem}
+      .intro p{font-size:0.95rem;max-width:none}
+      .form-aside p{max-width:none}
+      .result-section{padding:32px 0}
+      .result-section h3{margin-bottom:10px}
+      .submit-row{flex-direction:column;align-items:stretch;gap:14px}
+      button.ask{width:100%}
+      footer{padding:20px;flex-direction:column;align-items:center;text-align:center}
+    }
+</style>
+</head>
+<body>
+
+<!-- ===== DEV GATE - tool in sviluppo. Per rendere pubblico il tool: cancella questo blocco E il blocco JS del gate (in fondo, ben segnalato) ===== -->
+<div id="dev-gate" style="position:fixed;inset:0;z-index:99999;background:#0f0e0d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center;">
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.6rem,4vw,2.4rem);color:#f4f1eb;margin:0;">Officina chiusa</p>
+  <p style="font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:#63625d;margin:0;">Strumento in sviluppo</p>
+  <input id="gate-pw" type="password" placeholder="Password" autocomplete="off" style="margin-top:12px;font-family:'Karla',sans-serif;font-size:1rem;background:transparent;border:none;border-bottom:1px solid #63625d;color:#f4f1eb;padding:10px 4px;text-align:center;outline:none;letter-spacing:0.1em;width:220px;">
+  <button id="gate-btn" style="font-family:'Karla',sans-serif;font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;background:#f4f1eb;color:#0f0e0d;border:none;padding:14px 32px;cursor:pointer;">Entra</button>
+  <p id="gate-err" style="display:none;font-size:0.8rem;color:#cc4433;margin:0;">Password errata</p>
+</div>
+<!-- ===== FINE DEV GATE ===== -->
+
+<header>
+  <a href="index.html" class="site-name">JACOPO SAM FEDERICI</a>
+  <nav>
+    <a href="index.html#about" data-i18n="nav_bio">BIO</a>
+    <a href="index.html#studio" data-i18n="nav_studio">VOLTA STUDIO</a>
+    <a href="index.html#works" data-i18n="nav_works">LAVORI</a>
+    <a href="contatti.html" data-i18n="nav_contact">CONTATTI</a>
+  </nav>
+  <div class="lang-switch">
+    <button id="btn-it" onclick="setLang('it')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:var(--ink);opacity:1;font-weight:500;padding:0;">IT</button>
+    <span style="color:var(--rule);font-size:0.7rem;">·</span>
+    <button id="btn-en" onclick="setLang('en')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:#63625d;font-weight:400;padding:0;">EN</button>
+  </div>
+</header>
+
+<main>
+<div class="wrapper">
+
+  <div class="back-row">
+    <a href="index.html" style="display:inline-block;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity 0.2s;opacity:0.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><span class="t-it">← Indietro</span><span class="t-en" style="display:none">← Back</span></a>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="grid">
+      <div>
+        <span class="lab-tag" data-i18n="lab_tag">Officina · Lab</span>
+        <span class="label" data-i18n="page_label">Strumento AI sperimentale</span>
+      </div>
+      <div>
+        <h1 data-i18n="page_heading">Talkback.</h1>
+        <p class="t-it">Chiedimi qualsiasi cosa sulla produzione di alto livello - una microfonazione, un trick di mix o di master, una scelta di gear, un ampli, un pedale, una catena per registrare uno strumento in modo creativo, una scorciatoia in Pro Tools, una scelta di arrangiamento. Ti rispondo da producer a producer.</p>
+        <p class="t-en" style="display:none">Ask me anything about high-level production - a miking technique, a mix or master trick, a gear choice, an amp, a pedal, a creative way to track an instrument, a Pro Tools shortcut, an arrangement decision. I'll answer producer to producer.</p>
+        <p class="t-it">Niente marketing, niente liste-recensione, niente vangeli copiati dai corsi. Il principio sotto, non la ricetta da imitare.</p>
+        <p class="t-en" style="display:none">No marketing, no listicles, no gospel copied from courses. The principle underneath, not the recipe to imitate.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule-soft">
+
+  <!-- FORM -->
+  <section class="form-wrap">
+    <div class="form-aside">
+      <span class="label" data-i18n="form_aside_label">La domanda</span>
+      <p class="t-it">Sii specifico se puoi: stile musicale, contesto, cosa hai a disposizione, dove vuoi arrivare. Più contesto, più mirata la risposta.</p>
+      <p class="t-en" style="display:none">Be specific if you can: musical style, context, what you have to work with, where you want to land. More context, sharper answer.</p>
+      <div class="examples">
+        <h4 data-i18n="examples_label">Esempi</h4>
+        <button type="button" class="example-btn" data-q-it="Come registro una chitarra acustica intimista con un ribbon, in modo creativo?" data-q-en="How do I record an intimate acoustic guitar with a ribbon, creatively?">Chitarra acustica con ribbon</button>
+        <button type="button" class="example-btn" data-q-it="Spiegami il principio del rear bus di Andrew Scheps e quando ha senso usarlo" data-q-en="Explain Andrew Scheps' rear bus principle and when it makes sense">Il rear bus di Scheps</button>
+        <button type="button" class="example-btn" data-q-it="Come imposto il gain staging in Pro Tools per un mix pulito con plugin analog-modeled?" data-q-en="How do I set gain staging in Pro Tools for a clean mix with analog-modeled plugins?">Gain staging in Pro Tools</button>
+        <button type="button" class="example-btn" data-q-it="Voglio il suono di basso Motown di James Jamerson. Come ci arrivo tra strumento, tecnica e mix?" data-q-en="I want James Jamerson's Motown bass sound. How do I get there - instrument, technique, mix?">Il basso Motown di Jamerson</button>
+        <button type="button" class="example-btn" data-q-it="Trick creativi per registrare una chitarra elettrica con un ampli vintage piccolo" data-q-en="Creative tricks for recording electric guitar with a small vintage amp">Chitarra elettrica, ampli vintage</button>
+      </div>
+    </div>
+
+    <div class="form-main">
+      <label class="field-label" for="question" data-i18n="question_label">Cosa stai cercando</label>
+      <textarea id="question" maxlength="1500" placeholder="Es. 'Sto registrando una chitarra elettrica per un brano alt-rock. Ho un Fender Champ vintage e un Royer R-121. Come la riprendo e con che trick la rendo interessante?'"></textarea>
+      <div class="char-counter"><span id="counter">0</span> / 1500</div>
+      
+      <!-- Honeypot for bots -->
+      <input type="text" name="bot-field" id="bot-field" style="display:none" tabindex="-1" autocomplete="off">
+      
+      <div class="submit-row">
+        <button type="button" class="ask" id="ask-btn" data-i18n="ask_btn">CHIEDI →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOADING -->
+  <div id="loading">
+    <div class="loading-text">
+      <span class="t-it">Un attimo</span>
+      <span class="t-en" style="display:none">One moment</span>
+      <span class="loading-dots"><span></span><span></span><span></span></span>
+    </div>
+  </div>
+
+  <!-- ERROR -->
+  <div id="error">
+    <p id="error-msg"></p>
+  </div>
+
+  <!-- OUTPUT -->
+  <div id="output">
+
+    <div class="result-section">
+      <div class="grid">
+        <div>
+          <h3 data-i18n="r_sintesi">In sintesi</h3>
+        </div>
+        <div>
+          <p class="content italic" id="r-sintesi"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic blocks injected here -->
+    <div id="r-blocchi"></div>
+
+    <div class="result-section" id="chicca-section">
+      <div class="grid">
+        <div>
+          <h3 data-i18n="r_chicca">Dalla regia</h3>
+        </div>
+        <div>
+          <p class="perche" id="r-chicca"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="restart-row">
+      <button type="button" class="restart" id="restart-btn" data-i18n="restart_btn">FAI UN'ALTRA DOMANDA</button>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <p class="t-it">Tool sperimentale. Le risposte sono generate da un modello AI istruito sulla voce di Jacopo, non sono consulenza professionale né raccomandazioni d'acquisto. Verifica sempre prezzi, disponibilità e specifiche prima di comprare.</p>
+    <p class="t-en" style="display:none">Experimental tool. Responses are generated by an AI model instructed in Jacopo's voice; they're not professional advice or purchase recommendations. Always verify prices, availability and specs before buying.</p>
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <p data-i18n="footer_rights">© 2026 Jacopo Sam Federici. Tutti i diritti riservati.</p>
+  <p>Cambiago · Milano</p>
+</footer>
+
+<script>
+// ===== DEV GATE (rimuovere insieme al blocco HTML quando il tool diventa pubblico) =====
+const DEV_PASSWORD = "volta2026"; // <-- CAMBIA questa password con quella che vuoi
+(function(){
+  const gate = document.getElementById('dev-gate');
+  if(sessionStorage.getItem('banco-dev-unlocked') === 'yes'){
+    gate.style.display = 'none';
+    return;
+  }
+  document.body.style.overflow = 'hidden';
+  const input = document.getElementById('gate-pw');
+  const btn = document.getElementById('gate-btn');
+  const err = document.getElementById('gate-err');
+  function unlock(){
+    if(input.value === DEV_PASSWORD){
+      sessionStorage.setItem('banco-dev-unlocked','yes');
+      gate.style.display = 'none';
+      document.body.style.overflow = '';
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+    }
+  }
+  btn.addEventListener('click', unlock);
+  input.addEventListener('keydown', e => { if(e.key === 'Enter') unlock(); });
+  input.focus();
+})();
+// ===== FINE DEV GATE =====
+
+const I18N = {
+  nav_bio:          { it:'BIO', en:'BIO' },
+  nav_studio:       { it:'VOLTA STUDIO', en:'VOLTA STUDIO' },
+  nav_works:        { it:'LAVORI', en:'WORKS' },
+  nav_contact:      { it:'CONTATTI', en:'CONTACT' },
+  lab_tag:          { it:'Officina · Lab', en:'Workshop · Lab' },
+  page_label:       { it:'Strumento AI sperimentale', en:'Experimental AI tool' },
+  page_heading:     { it:'Talkback.', en:'Talkback.' },
+  form_aside_label: { it:'La domanda', en:'Your question' },
+  examples_label:   { it:'Esempi', en:'Examples' },
+  question_label:   { it:'Cosa stai cercando', en:"What you're looking for" },
+  ask_btn:          { it:'CHIEDI →', en:'ASK →' },
+  r_sintesi:        { it:'In sintesi', en:'In short' },
+  r_chicca:         { it:'Dalla regia', en:'From the control room' },
+  restart_btn:      { it:"FAI UN'ALTRA DOMANDA", en:'ASK ANOTHER QUESTION' },
+  footer_rights:    { it:'© 2026 Jacopo Sam Federici. Tutti i diritti riservati.', en:'© 2026 Jacopo Sam Federici. All rights reserved.' }
+};
+
+function getLang(){ return localStorage.getItem('lang') || 'it'; }
+function setLang(lang){
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(I18N[key] && I18N[key][lang]) el.textContent = I18N[key][lang];
+  });
+  document.querySelectorAll('.t-it').forEach(el => el.style.display = lang === 'it' ? '' : 'none');
+  document.querySelectorAll('.t-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+  // Lang switch styling
+  const bi = document.getElementById('btn-it'), be = document.getElementById('btn-en');
+  if(lang === 'it'){
+    bi.style.color = 'var(--ink)'; bi.style.fontWeight = '500'; bi.style.opacity = '1';
+    be.style.color = '#63625d'; be.style.fontWeight = '400'; be.style.opacity = '';
+  } else {
+    be.style.color = 'var(--ink)'; be.style.fontWeight = '500'; be.style.opacity = '1';
+    bi.style.color = '#63625d'; bi.style.fontWeight = '400'; bi.style.opacity = '';
+  }
+  // Update textarea placeholder
+  const ta = document.getElementById('question');
+  ta.placeholder = lang === 'it'
+    ? "Es. 'Sto registrando una chitarra elettrica per un brano alt-rock. Ho un Fender Champ vintage e un Royer R-121. Come la riprendo e con che trick la rendo interessante?'"
+    : "E.g. 'I'm recording electric guitar for an alt-rock track. I have a vintage Fender Champ and a Royer R-121. How do I mic it and what tricks make it interesting?'";
+}
+
+// Init language
+setLang(getLang());
+
+// Char counter
+const ta = document.getElementById('question');
+const counter = document.getElementById('counter');
+ta.addEventListener('input', () => { counter.textContent = ta.value.length; });
+
+// Example buttons
+document.querySelectorAll('.example-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = getLang();
+    ta.value = btn.getAttribute(lang === 'en' ? 'data-q-en' : 'data-q-it');
+    counter.textContent = ta.value.length;
+    ta.focus();
+  });
+});
+
+// Ask
+const askBtn = document.getElementById('ask-btn');
+const loadingEl = document.getElementById('loading');
+const errorEl = document.getElementById('error');
+const errorMsg = document.getElementById('error-msg');
+const outputEl = document.getElementById('output');
+
+async function askBanco(){
+  const q = ta.value.trim();
+  if(q.length < 5){
+    showError(getLang() === 'it' ? 'Spiegami meglio la domanda (minimo 5 caratteri).' : 'Tell me more (at least 5 characters).');
+    return;
+  }
+  
+  hideError();
+  hideOutput();
+  showLoading();
+  askBtn.disabled = true;
+  
+  try{
+    const res = await fetch('/.netlify/functions/talkback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        question: q,
+        'bot-field': document.getElementById('bot-field').value
+      })
+    });
+    
+    const data = await res.json();
+    
+    if(!res.ok){
+      throw new Error(data.error || 'Errore sconosciuto');
+    }
+    
+    renderOutput(data);
+  } catch(e){
+    showError(e.message || (getLang() === 'it' ? 'Errore di rete. Riprova.' : 'Network error. Try again.'));
+  } finally {
+    hideLoading();
+    askBtn.disabled = false;
+  }
+}
+
+function renderOutput(data){
+  document.getElementById('r-sintesi').textContent = data.sintesi || '';
+
+  // Dynamic blocks
+  const blocchiContainer = document.getElementById('r-blocchi');
+  blocchiContainer.innerHTML = '';
+  (data.blocchi || []).forEach(blocco => {
+    const section = document.createElement('div');
+    section.className = 'result-section';
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    const left = document.createElement('div');
+    const h3 = document.createElement('h3');
+    h3.textContent = blocco.titolo || '';
+    left.appendChild(h3);
+    const right = document.createElement('div');
+    const p = document.createElement('p');
+    p.className = 'perche';
+    p.textContent = blocco.contenuto || '';
+    right.appendChild(p);
+    grid.appendChild(left);
+    grid.appendChild(right);
+    section.appendChild(grid);
+    blocchiContainer.appendChild(section);
+  });
+
+  // Chicca (hide section if empty)
+  const chicca = data.chicca || '';
+  document.getElementById('r-chicca').textContent = chicca;
+  document.getElementById('chicca-section').style.display = chicca.trim() ? '' : 'none';
+
+  outputEl.classList.add('show');
+  outputEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showLoading(){ loadingEl.classList.add('show'); }
+function hideLoading(){ loadingEl.classList.remove('show'); }
+function showError(msg){ errorMsg.textContent = msg; errorEl.classList.add('show'); }
+function hideError(){ errorEl.classList.remove('show'); }
+function hideOutput(){ outputEl.classList.remove('show'); }
+
+askBtn.addEventListener('click', askBanco);
+
+// Submit on Cmd/Ctrl + Enter
+ta.addEventListener('keydown', (e) => {
+  if((e.metaKey || e.ctrlKey) && e.key === 'Enter'){
+    askBanco();
+  }
+});
+
+// Restart
+document.getElementById('restart-btn').addEventListener('click', () => {
+  ta.value = '';
+  counter.textContent = '0';
+  hideOutput();
+  hideError();
+  ta.focus();
+  document.querySelector('.intro').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+</script>
+
+</body>
+</html>
