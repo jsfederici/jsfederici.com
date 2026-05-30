@@ -40,7 +40,7 @@
     /* ── HERO ── */
     .hero{padding:48px 0 0}
     .hero-grid{display:grid;grid-template-columns:1fr 2.2fr;gap:0 60px;align-items:start}
-    .hero h1{font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.2rem);font-weight:300;font-style:italic;line-height:0.98;margin-bottom:28px;letter-spacing:-0.01em}
+    .hero h1{font-family:var(--serif);font-size:clamp(2.1rem,3.7vw,3.4rem);font-weight:300;font-style:italic;line-height:1.05;margin-bottom:28px;letter-spacing:-0.005em}
     .hero-body{max-width:720px}
     .hero p{font-size:1.05rem;color:var(--read);line-height:1.85;max-width:660px;margin-bottom:18px}
     .hero p.muted{color:var(--dust);font-size:0.98rem}
@@ -147,7 +147,7 @@
       .wrapper{padding:0 20px}
       .hero{padding:32px 0 0}
       .hero-grid{grid-template-columns:1fr;gap:24px}
-      .hero h1{font-size:2.8rem}
+      .hero h1{font-size:1.9rem}
       .hero p{font-size:1rem;max-width:none}
       .waveform{margin:36px 0 48px}
       .waveform svg{height:54px}
@@ -186,6 +186,7 @@
     <a href="index.html#about" data-i18n="nav_bio">BIO</a>
     <a href="index.html#studio" data-i18n="nav_studio">VOLTA STUDIO</a>
     <a href="index.html#works" data-i18n="nav_works">LAVORI</a>
+    <a href="talkback.html" class="current" data-i18n="nav_lab">LAB</a>
     <a href="contatti.html" data-i18n="nav_contact">CONTATTI</a>
   </nav>
   <div class="lang-switch">
@@ -202,7 +203,7 @@
   <section class="hero">
     <div class="hero-grid">
       <div>
-        <span class="label" data-i18n="lab_tag">Officina · Lab</span>
+        <span class="label" data-i18n="lab_tag">Lab</span>
       </div>
       <div class="hero-body">
         <h1 data-i18n="page_heading">Talkback.</h1>
@@ -329,8 +330,9 @@ const I18N = {
   nav_bio:          { it:'BIO', en:'BIO' },
   nav_studio:       { it:'VOLTA STUDIO', en:'VOLTA STUDIO' },
   nav_works:        { it:'LAVORI', en:'WORKS' },
+  nav_lab:          { it:'LAB', en:'LAB' },
   nav_contact:      { it:'CONTATTI', en:'CONTACT' },
-  lab_tag:          { it:'Officina · Lab', en:'Workshop · Lab' },
+  lab_tag:          { it:'Lab', en:'Lab' },
   page_label:       { it:'Strumento AI sperimentale', en:'Experimental AI tool' },
   page_heading:     { it:'Talkback.', en:'Talkback.' },
   form_aside_label: { it:'La domanda', en:'Your question' },
