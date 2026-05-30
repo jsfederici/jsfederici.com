@@ -38,10 +38,10 @@
     .back-link:hover{opacity:1}
 
     /* ── HERO ── */
-    .hero{padding:32px 0 0}
-    .lab-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.34em;text-transform:uppercase;color:var(--dust);border:1px solid var(--rule);padding:7px 15px;margin-bottom:28px}
-    .hero h1{font-family:var(--serif);font-size:clamp(3.4rem,8vw,6.4rem);font-weight:300;font-style:italic;line-height:0.98;margin-bottom:28px;letter-spacing:-0.01em}
-    .hero-body{max-width:700px}
+    .hero{padding:48px 0 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 2.2fr;gap:0 60px;align-items:start}
+    .hero h1{font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.2rem);font-weight:300;font-style:italic;line-height:0.98;margin-bottom:28px;letter-spacing:-0.01em}
+    .hero-body{max-width:720px}
     .hero p{font-size:1.05rem;color:var(--read);line-height:1.85;max-width:660px;margin-bottom:18px}
     .hero p.muted{color:var(--dust);font-size:0.98rem}
     .waveform{margin:52px 0 64px;color:var(--ink);opacity:0.3}
@@ -145,8 +145,9 @@
       header{padding:14px 20px;flex-direction:column;gap:14px;align-items:flex-start}
       nav{gap:18px}
       .wrapper{padding:0 20px}
-      .hero{padding:36px 0 0}
-      .hero h1{font-size:3rem}
+      .hero{padding:32px 0 0}
+      .hero-grid{grid-template-columns:1fr;gap:24px}
+      .hero h1{font-size:2.8rem}
       .hero p{font-size:1rem;max-width:none}
       .waveform{margin:36px 0 48px}
       .waveform svg{height:54px}
@@ -197,19 +198,19 @@
 <main>
 <div class="wrapper">
 
-  <div class="back-row">
-    <a href="index.html" class="back-link"><span class="t-it">← Indietro</span><span class="t-en" style="display:none">← Back</span></a>
-  </div>
-
   <!-- HERO -->
   <section class="hero">
-    <span class="lab-tag" data-i18n="lab_tag">Officina · Lab</span>
-    <h1 data-i18n="page_heading">Talkback.</h1>
-    <div class="hero-body">
-      <p class="t-it">Chiedimi qualsiasi cosa sulla produzione di alto livello - una microfonazione, un trick di mix o di master, una scelta di gear, un ampli, un pedale, una catena per registrare uno strumento in modo creativo, una scorciatoia in Pro Tools, una scelta di arrangiamento.</p>
-      <p class="t-en" style="display:none">Ask me anything about high-level production - a miking technique, a mix or master trick, a gear choice, an amp, a pedal, a creative way to track an instrument, a Pro Tools shortcut, an arrangement decision.</p>
-      <p class="muted t-it">Niente marketing, niente liste-recensione, niente vangeli copiati dai corsi. Il principio sotto, non la ricetta da imitare. Producer a producer.</p>
-      <p class="muted t-en" style="display:none">No marketing, no listicles, no gospel copied from courses. The principle underneath, not the recipe to imitate. Producer to producer.</p>
+    <div class="hero-grid">
+      <div>
+        <span class="label" data-i18n="lab_tag">Officina · Lab</span>
+      </div>
+      <div class="hero-body">
+        <h1 data-i18n="page_heading">Talkback.</h1>
+        <p class="t-it">Chiedimi qualsiasi cosa sulla produzione di alto livello - una microfonazione, un trick di mix o di master, una scelta di gear, un ampli, un pedale, una catena per registrare uno strumento in modo creativo, una scorciatoia in Pro Tools, una scelta di arrangiamento.</p>
+        <p class="t-en" style="display:none">Ask me anything about high-level production - a miking technique, a mix or master trick, a gear choice, an amp, a pedal, a creative way to track an instrument, a Pro Tools shortcut, an arrangement decision.</p>
+        <p class="muted t-it">Niente marketing, niente liste-recensione, niente vangeli copiati dai corsi. Il principio sotto, non la ricetta da imitare. Producer a producer.</p>
+        <p class="muted t-en" style="display:none">No marketing, no listicles, no gospel copied from courses. The principle underneath, not the recipe to imitate. Producer to producer.</p>
+      </div>
     </div>
     <div class="waveform"><svg id="waveform-svg" viewBox="0 0 1000 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg></div>
   </section>
