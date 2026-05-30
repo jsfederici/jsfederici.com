@@ -31,11 +31,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Setup & Gear - Volta Studio">
   <meta name="twitter:description" content="Strumenti, outboard analogico, microfoni e workflow di Volta Studio a Cambiago, Milano.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&display=swap"></noscript>
+  <link rel="preload" href="/fonts/karla-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cormorant-300i.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="images/set-01.webp" fetchpriority="high">
   <style>
+@font-face{font-family:'Karla';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/karla-300.woff2') format('woff2')}@font-face{font-family:'Karla';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/karla-400.woff2') format('woff2')}@font-face{font-family:'Karla';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/karla-500.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/cormorant-300.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/cormorant-400.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/cormorant-600.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url('/fonts/cormorant-300i.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url('/fonts/cormorant-400i.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-display:swap;src:url('/fonts/cormorant-600i.woff2') format('woff2')}
+
 
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -202,7 +203,7 @@
     .scroll-top:hover{opacity:1}
 
     @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-    .hero-photo-wrap{animation:fadeIn 1s ease forwards}
+    .hero-photo-wrap{opacity:1}
     .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.8s ease,transform 0.8s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -425,7 +426,7 @@
       <span class="label t-it" style="margin-bottom:24px;display:block;">Setup</span>
       <span class="label t-en" style="margin-bottom:24px;display:none;">Setup</span>
       <div style="overflow:hidden;border-radius:6px;">
-        <img alt="Fulltone Tube Tape Echo" style="width:100%;height:auto;display:block;opacity:0.92;" src="images/set-01.webp" width="1280" height="1163" loading="lazy" decoding="async">
+        <img loading="eager" fetchpriority="high" alt="Fulltone Tube Tape Echo" style="width:100%;height:auto;display:block;opacity:0.92;" src="images/set-01.webp" width="1280" height="1163" decoding="async">
       </div>
     </div>
 

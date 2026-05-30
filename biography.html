@@ -27,11 +27,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Biografia - Jacopo Sam Federici">
   <meta name="twitter:description" content="Producer, compositore e arrangiatore a Milano. Volta Studio, FET Bastards, sessioni orchestrali e produzioni internazionali.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&display=swap"></noscript>
+  <link rel="preload" href="/fonts/karla-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cormorant-300i.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" imagesrcset="images/bio-01-sm.webp 640w, images/bio-01.webp 1280w" imagesizes="(max-width:900px) 100vw, 344px" fetchpriority="high">
   <style>
+@font-face{font-family:'Karla';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/karla-300.woff2') format('woff2')}@font-face{font-family:'Karla';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/karla-400.woff2') format('woff2')}@font-face{font-family:'Karla';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/karla-500.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/cormorant-300.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/cormorant-400.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/cormorant-600.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url('/fonts/cormorant-300i.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url('/fonts/cormorant-400i.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-display:swap;src:url('/fonts/cormorant-600i.woff2') format('woff2')}
+
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html,body{overflow-x:hidden;max-width:100vw;background:#f4f1eb;color:#0f0e0d;font-family:"Karla",sans-serif;font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
     :root{--ink:#0f0e0d;--paper:#f4f1eb;--dust:#63625d;--rule:#dedad3;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Karla",sans-serif;--max:1100px}
@@ -131,7 +132,7 @@
     <div class="bio-left">
       <span class="label" id="bio-label">Biografia</span>
       <div style="margin-top:24px;overflow:hidden;border-radius:6px;">
-        <img alt="Jacopo Sam Federici e Iacopo Pinna - FET BASTARDs" src="images/bio-01.webp" srcset="images/bio-01-sm.webp 640w, images/bio-01.webp 1280w" sizes="(max-width:900px) 100vw, 344px" width="1280" height="831" loading="lazy" decoding="async">
+        <img loading="eager" fetchpriority="high" alt="Jacopo Sam Federici e Iacopo Pinna - FET BASTARDs" src="images/bio-01.webp" srcset="images/bio-01-sm.webp 640w, images/bio-01.webp 1280w" sizes="(max-width:900px) 100vw, 344px" width="1280" height="831" decoding="async">
       </div>
       <p class="caption">Jacopo &amp; Iacopo Pinna - FET Bastards</p>
       <div style="margin-top:16px;overflow:hidden;border-radius:6px;">

@@ -2,9 +2,11 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discografia - Jacopo Sam Federici | Produzioni, Mix, Orchestrazioni</title>
   <meta name="description" content="Discografia di Jacopo Sam Federici: produzioni, co-produzioni, sessioni orchestrali, mixaggio e arrangiamenti per artisti italiani e internazionali. Volta Studio, Milano.">
@@ -22,15 +24,19 @@
   <meta property="og:title" content="Discografia - Jacopo Sam Federici">
   <meta property="og:description" content="Produzioni, co-produzioni, sessioni orchestrali, mix e arrangiamenti.">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:image" content="https://www.jsfederici.com/FOTO/00%20Head/og-image.jpg">
+  <meta property="og:image" content="https://www.jsfederici.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://www.jsfederici.com/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Discografia - Jacopo Sam Federici">
   <meta name="twitter:description" content="Produzioni, co-produzioni, sessioni orchestrali, mix e arrangiamenti.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&display=swap"></noscript>
+  <link rel="preload" href="/fonts/karla-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cormorant-300i.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="images/cov_2026_pollio_dopo_la_bomba.webp" fetchpriority="high">
   <style>
+@font-face{font-family:'Karla';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/karla-300.woff2') format('woff2')}@font-face{font-family:'Karla';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/karla-400.woff2') format('woff2')}@font-face{font-family:'Karla';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/karla-500.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/cormorant-300.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/cormorant-400.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/cormorant-600.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url('/fonts/cormorant-300i.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url('/fonts/cormorant-400i.woff2') format('woff2')}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-display:swap;src:url('/fonts/cormorant-600i.woff2') format('woff2')}
+
 
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -197,7 +203,7 @@
     .scroll-top:hover{opacity:1}
 
     @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-    .hero-photo-wrap{animation:fadeIn 1s ease forwards}
+    .hero-photo-wrap{opacity:1}
     .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.8s ease,transform 0.8s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -388,7 +394,7 @@
 
   <div class="disco-grid">
     <div class="disco-covers">
-        <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/3oc2U6EouvUgxWAoCAos3y" role="link" tabindex="0"><img alt="Pollio - Dopo la bomba" src="images/cov_2026_pollio_dopo_la_bomba.webp" width="560" height="560" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Pollio</span><span class="cover-title">Dopo la bomba <span style="font-size:0.72em;opacity:1;font-style:normal;font-weight:500;">Album &middot; 2026</span></span><span class="cover-role">Producer</span></figcaption></figure>
+        <figure class="cover-item" data-href="https://open.spotify.com/intl-it/album/3oc2U6EouvUgxWAoCAos3y" role="link" tabindex="0"><img loading="eager" fetchpriority="high" alt="Pollio - Dopo la bomba" src="images/cov_2026_pollio_dopo_la_bomba.webp" width="560" height="560" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Pollio</span><span class="cover-title">Dopo la bomba <span style="font-size:0.72em;opacity:1;font-style:normal;font-weight:500;">Album &middot; 2026</span></span><span class="cover-role">Producer</span></figcaption></figure>
         <figure class="cover-item" role="link" tabindex="0"><img alt="Marzio Mazzoleni - You Are Not Alone" src="images/cov_2026_marzio_mazzoleni_you_are_not_alone.webp" width="560" height="560" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Marzio Mazzoleni</span><span class="cover-title">You Are Not Alone <span style="font-size:0.72em;opacity:1;font-style:normal;font-weight:500;">Singolo &middot; 2026</span></span><span class="cover-role">Orchestral Mgmt · Score Prep</span></figcaption></figure>
         <figure class="cover-item" role="link" tabindex="0"><img alt="Marzio Mazzoleni - Trust in You" src="images/cov_2026_marzio_mazzoleni_trust_in_you.webp" width="560" height="560" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Marzio Mazzoleni</span><span class="cover-title">Trust in You <span style="font-size:0.72em;opacity:1;font-style:normal;font-weight:500;">Singolo &middot; 2026</span></span><span class="cover-role">Orchestral Mgmt · Score Prep</span></figcaption></figure>
         <figure class="cover-item" role="link" tabindex="0"><img alt="Marzio Mazzoleni - In Memory of Australian Kangaroos" src="images/cov_2026_marzio_mazzoleni_in_memory_of_australian_kang.webp" width="560" height="560" loading="lazy" decoding="async"><figcaption class="cover-caption"><span class="cover-artist">Marzio Mazzoleni</span><span class="cover-title">In Memory of Australian Kangaroos <span style="font-size:0.72em;opacity:1;font-style:normal;font-weight:500;">Singolo &middot; 2026</span></span><span class="cover-role">Orchestral Mgmt · Score Prep</span></figcaption></figure>
