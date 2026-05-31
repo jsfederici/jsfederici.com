@@ -192,8 +192,8 @@
     .social-icon:hover{opacity:1;transform:scale(1.12)}
     .social-icon img{width:100%;height:100%;object-fit:contain}
 
-    footer{border-top:1px solid var(--rule);padding:28px 56px;display:flex;justify-content:space-between;align-items:center}
-    footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust)}
+    footer{border-top:1px solid var(--rule);padding:28px 56px;text-align:center}
+    footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);margin:4px 0}
     .footer-social{display:flex;gap:18px;align-items:center}
     .footer-icon{width:16px;height:16px;opacity:0.3;transition:opacity 0.2s;text-decoration:none;display:inline-flex}
     .footer-icon:hover{opacity:0.75}
@@ -244,6 +244,7 @@
       .studio-header h2{font-size:1.5rem !important}
       html{font-size:16px}
       .wrapper{padding:0 20px}
+      footer{padding:28px 20px}
 
       header{padding:14px 20px}
       nav{display:none}
@@ -355,6 +356,11 @@
     .mobile-lang button{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink);padding:6px 4px;opacity:0.55}
     .mobile-lang button.active{opacity:1;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:4px}
     .mobile-lang span{color:var(--rule);font-size:0.78rem}
+
+  
+    /* ── STICKY FOOTER (linea sempre in fondo, posizione uniforme) ── */
+    body{min-height:100vh;display:flex;flex-direction:column}
+    main{flex:1 0 auto}
 
   </style>
 
@@ -574,9 +580,9 @@
 
 </main>
 
-<footer style="border-top:1px solid var(--rule);padding:28px 56px;">
-  <p class="t-it" style="font-size:0.66rem;letter-spacing:0.1em;color:var(--ink);">© 2026 Jacopo Sam Federici. Tutti i diritti riservati.</p>
-  <p class="t-en" style="display:none;font-size:0.66rem;letter-spacing:0.1em;color:var(--ink);">© 2026 Jacopo Sam Federici. All rights reserved.</p>
+<footer>
+  <p class="t-it">© 2026 Jacopo Sam Federici. Tutti i diritti riservati.</p>
+  <p class="t-en" style="display:none">© 2026 Jacopo Sam Federici. All rights reserved.</p>
 </footer>
 
 <script>

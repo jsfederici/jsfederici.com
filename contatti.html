@@ -67,7 +67,7 @@
     .contact-intro{padding:170px 0 64px;}
     .contact-intro .grid{display:grid;grid-template-columns:1.4fr 2fr;gap:0 60px;align-items:start;}
     .contact-intro h1{
-      font-family:var(--serif);font-size:clamp(2.7rem,5.7vw,4.8rem);font-weight:300;font-style:italic;
+      font-family:var(--serif);font-size:clamp(2.1rem,3.7vw,3.4rem);font-weight:300;font-style:italic;
       line-height:1.08;margin-bottom:32px;
     }
     .contact-intro p{font-size:1.02rem;color:var(--dust);line-height:1.9;max-width:520px;}
@@ -134,16 +134,17 @@
 
     /* ── FOOTER ── */
     footer{
-      border-top:1px solid var(--rule);margin-top:120px;padding:28px 56px;
-      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+      border-top:1px solid var(--rule);padding:28px 56px;
+      text-align:center;
     }
-    footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);}
+    footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);margin:4px 0;}
     .footer-link{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);text-decoration:none;transition:color 0.2s;}
     .footer-link:hover{color:var(--ink);}
 
     @media(max-width:900px){
       .hamburger{display:flex !important;align-items:center;justify-content:center} .lang-switch{display:none !important}
       header{padding:16px 24px;}
+      .site-name{font-size:0.78rem !important;letter-spacing:0.22em;}
       nav{display:none;}
       .wrapper{padding:0 24px;}
       .contact-intro{padding:120px 0 44px;}
@@ -172,6 +173,11 @@
     .mobile-lang button{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink);padding:6px 4px;opacity:0.55}
     .mobile-lang button.active{opacity:1;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:4px}
     .mobile-lang span{color:var(--rule);font-size:0.78rem}
+
+  
+    /* ── STICKY FOOTER (linea sempre in fondo, posizione uniforme) ── */
+    body{min-height:100vh;display:flex;flex-direction:column}
+    main{flex:1 0 auto}
 
   </style>
 </head>
@@ -351,10 +357,7 @@
 <!-- FOOTER -->
 <footer>
   <p data-i18n="footer_rights">© 2026 Jacopo Sam Federici. Tutti i diritti riservati.</p>
-  <div style="display:flex;align-items:center;gap:20px;">
-    <a href="/" class="footer-link" data-i18n="footer_home">Home</a>
-    <p>Cambiago · Milano</p>
-  </div>
+  <p>Cambiago · Milano</p>
 </footer>
 
 <script>
@@ -389,8 +392,7 @@ var I18N = {
   success_title: { it: "Ricevuto, grazie.", en: "Got it, thank you." },
   upload_aside_label: { it: "Inviami un progetto", en: "Send a project" },
   upload_btn: { it: "Apri lo spazio di caricamento &nbsp;→", en: "Open the upload space &nbsp;→" },
-  footer_rights: { it: "© 2026 Jacopo Sam Federici. Tutti i diritti riservati.", en: "© 2026 Jacopo Sam Federici. All rights reserved." },
-  footer_home: { it: "Home", en: "Home" }
+  footer_rights: { it: "© 2026 Jacopo Sam Federici. Tutti i diritti riservati.", en: "© 2026 Jacopo Sam Federici. All rights reserved." }
 };
 
 function setLang(lang) {

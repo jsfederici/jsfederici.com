@@ -365,6 +365,7 @@ const DEV_CREDS = [
       sessionStorage.setItem('lab-dev-unlocked','yes');
       gate.style.display = 'none';
       document.body.style.overflow = '';
+      window.scrollTo(0, 0);
     } else {
       err.style.display = 'block';
       pwIn.value = '';
@@ -374,7 +375,6 @@ const DEV_CREDS = [
   btn.addEventListener('click', unlock);
   userIn.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); pwIn.focus(); } });
   pwIn.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); unlock(); } });
-  userIn.focus();
 })();
 // ===== FINE DEV GATE =====
 

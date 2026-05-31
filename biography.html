@@ -60,11 +60,12 @@
     .bio-right em{font-style:italic;color:var(--ink);font-family:var(--serif)}
     .bio-right a{color:inherit;border-bottom:1px solid var(--rule);text-decoration:none}
     .mobile-photo{display:none}
-    footer{border-top:1px solid var(--rule);padding:28px 56px}
-    footer p{font-size:0.66rem;letter-spacing:0.1em;color:#000}
+    footer{border-top:1px solid var(--rule);padding:28px 56px;text-align:center}
+    footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);margin:4px 0}
     @media(max-width:900px){
       .hamburger{display:flex !important;align-items:center;justify-content:center} .lang-switch{display:none !important}
       header{padding:14px 20px}
+      .site-name{font-size:0.78rem !important;letter-spacing:0.22em}
       nav{display:none}
       .wrapper{padding:0 20px}
       .bio-section{grid-template-columns:1fr;gap:0;padding:80px 0 52px}
@@ -74,7 +75,7 @@
       .mobile-photo .caption{font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:#63625d;margin-top:10px;opacity:0.7}
       .bio-right h2{font-size:1.9rem;margin-bottom:24px}
       .bio-right p{font-size:0.92rem}
-      footer{border-top:1px solid var(--rule);padding:28px 56px}
+      footer{padding:28px 20px}
     }
     .reveal, .reveal.visible { opacity:1 !important; transform:none !important; transition:none !important; }
   
@@ -93,6 +94,11 @@
     .mobile-lang button{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink);padding:6px 4px;opacity:0.55}
     .mobile-lang button.active{opacity:1;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:4px}
     .mobile-lang span{color:var(--rule);font-size:0.78rem}
+
+  
+    /* ── STICKY FOOTER (linea sempre in fondo, posizione uniforme) ── */
+    body{min-height:100vh;display:flex;flex-direction:column}
+    main{flex:1 0 auto}
 
   </style>
   <meta property="og:image" content="https://www.jsfederici.com/og-image.jpg">
@@ -152,10 +158,10 @@
       <a href="index.html#contact" style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:0.7;" class="t-it">Contatti</a>
       <a href="index.html#contact" style="font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:0.7;display:none" class="t-en">Contact</a>
     </nav>
-    <div class="lang-switch">
-      <button id="btn-it" onclick="setLang('it')">IT</button>
-      <span>·</span>
-      <button id="btn-en" onclick="setLang('en')">EN</button>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <button id="btn-it" onclick="setLang('it')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:var(--ink);opacity:1;font-weight:500;padding:0;">IT</button>
+      <span style="color:var(--rule);font-size:0.7rem;">·</span>
+      <button id="btn-en" onclick="setLang('en')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:#63625d;font-weight:400;padding:0;">EN</button>
     </div>
     <button class="hamburger" aria-label="Apri menù" aria-expanded="false" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
   </div>
