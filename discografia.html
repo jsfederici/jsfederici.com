@@ -192,8 +192,8 @@
     .social-icon:hover{opacity:1;transform:scale(1.12)}
     .social-icon img{width:100%;height:100%;object-fit:contain}
 
-    footer{border-top:1px solid var(--rule);padding:28px 56px;text-align:center}
-    footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);margin:4px 0}
+    footer{border-top:1px solid var(--rule);padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    footer p{font-size:0.66rem;letter-spacing:0.1em;color:var(--dust);margin:0}
     .footer-social{display:flex;gap:18px;align-items:center}
     .footer-icon{width:16px;height:16px;opacity:0.3;transition:opacity 0.2s;text-decoration:none;display:inline-flex}
     .footer-icon:hover{opacity:0.75}
@@ -244,7 +244,7 @@
       .studio-header h2{font-size:1.5rem !important}
       html{font-size:16px}
       .wrapper{padding:0 20px}
-      footer{padding:28px 20px}
+      footer{flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:28px 20px;text-align:center}
 
       header{padding:14px 20px}
       nav{display:none}
@@ -505,7 +505,7 @@
     </div>
   </div>
 
-  <a href="index.html#works" style="display:inline-block;margin-top:56px;margin-bottom:80px;font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity 0.2s;opacity:0.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><span class="t-it">← Indietro</span><span class="t-en" style="display:none">← Back</span></a>
+  <a href="index.html#works" style="display:inline-block;margin-top:48px;margin-bottom:80px;font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity 0.2s;opacity:0.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><span class="t-it">← Indietro</span><span class="t-en" style="display:none">← Back</span></a>
 
 </div>
 
@@ -514,6 +514,7 @@
 <footer>
   <p class="t-it">© 2026 Jacopo Sam Federici. Tutti i diritti riservati.</p>
   <p class="t-en" style="display:none">© 2026 Jacopo Sam Federici. All rights reserved.</p>
+  <p class="footer-loc">Cambiago · Milano</p>
 </footer>
 
 <script>
