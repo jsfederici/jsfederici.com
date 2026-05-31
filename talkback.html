@@ -25,9 +25,6 @@
 
     header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:20px 56px;background:rgba(244,241,235,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
     .site-name{font-family:var(--serif);font-size:0.95rem;font-weight:300;letter-spacing:0.42em;text-decoration:none;color:var(--ink);text-transform:uppercase}
-    .lang-switch-mobile{display:none;gap:6px;align-items:center;font-family:var(--sans)}
-    .lang-switch-mobile button{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:#63625d;font-weight:400;padding:0}
-    .lang-switch-mobile span{color:var(--rule);font-size:0.7rem}
     nav{display:flex;gap:36px;list-style:none}
     nav a{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:opacity 0.2s;opacity:0.7}
     nav a:hover{opacity:1}
@@ -145,10 +142,9 @@
 
     /* ── MOBILE ── */
     @media(max-width:900px){
-      .hamburger{display:flex !important;align-items:center;justify-content:center} .lang-switch{display:none !important}
+      .hamburger{display:flex !important;align-items:center;justify-content:center}
       header{padding:14px 20px;justify-content:space-between;align-items:center}
       .site-name{font-size:0.78rem;letter-spacing:0.22em}
-      .lang-switch-mobile{display:flex;position:absolute;left:50%;transform:translateX(-50%)}
       nav{display:none}
       .wrapper{padding:0 20px}
       .hero{padding:32px 0 0}
@@ -208,11 +204,6 @@
 
 <header>
   <a href="index.html" class="site-name">JACOPO SAM FEDERICI</a>
-  <div class="lang-switch-mobile">
-    <button onclick="setLang('it')" id="m2-btn-it" aria-label="Italiano">IT</button>
-    <span>·</span>
-    <button onclick="setLang('en')" id="m2-btn-en" aria-label="English">EN</button>
-  </div>
   <div style="display:flex;align-items:center;gap:36px;">
     <nav>
       <a href="index.html#about" data-i18n="nav_bio">BIO</a>
@@ -221,7 +212,7 @@
       <a href="talkback.html" class="current" data-i18n="nav_lab">LAB</a>
       <a href="contatti.html" data-i18n="nav_contact">CONTATTI</a>
     </nav>
-    <div class="lang-switch">
+    <div style="display:flex;gap:6px;align-items:center;">
       <button id="btn-it" onclick="setLang('it')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:var(--ink);opacity:1;font-weight:500;padding:0;">IT</button>
       <span style="color:var(--rule);font-size:0.7rem;">·</span>
       <button id="btn-en" onclick="setLang('en')" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:var(--sans);color:#63625d;font-weight:400;padding:0;">EN</button>
@@ -416,19 +407,16 @@ function setLang(lang){
   });
   document.querySelectorAll('.t-it').forEach(el => el.style.display = lang === 'it' ? '' : 'none');
   document.querySelectorAll('.t-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-  // Lang switch styling (desktop + mobile header)
+  // Lang switch styling
   const bi = document.getElementById('btn-it'), be = document.getElementById('btn-en');
-  const mbi = document.getElementById('m2-btn-it'), mbe = document.getElementById('m2-btn-en');
   function applyLangStyle(btn, active){
     if(!btn) return;
     btn.style.color = active ? 'var(--ink)' : '#63625d';
     btn.style.fontWeight = active ? '500' : '400';
     btn.style.opacity = active ? '1' : '';
   }
-  applyLangStyle(bi,  lang === 'it');
-  applyLangStyle(be,  lang === 'en');
-  applyLangStyle(mbi, lang === 'it');
-  applyLangStyle(mbe, lang === 'en');
+  applyLangStyle(bi, lang === 'it');
+  applyLangStyle(be, lang === 'en');
   // Update textarea placeholder
   const ta = document.getElementById('question');
   ta.placeholder = lang === 'it'
